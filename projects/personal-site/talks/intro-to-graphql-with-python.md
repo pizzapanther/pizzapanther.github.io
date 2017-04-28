@@ -65,9 +65,7 @@ class BookNode(DjangoObjectType):
 
 class VerseNode(DjangoObjectType):
   class Meta:
-    model = Verse
-    filter_fields = ('book__bible__slug', 'book__slug', 'chapter')
-    interfaces = (relay.Node, )
+    ...
 
 class Query(AbstractType):
   book = relay.Node.Field(BookNode)
