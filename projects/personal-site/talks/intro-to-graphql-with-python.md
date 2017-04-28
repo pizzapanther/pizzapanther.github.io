@@ -1,5 +1,7 @@
+{% load static %}
 class: inverse, spaced
 layout: true
+background-image: url({% static "img/icon.svg" %})
 
 ---
 
