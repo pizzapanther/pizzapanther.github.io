@@ -4,11 +4,11 @@ from django.template import Context, Template
 from django.template.loader import render_to_string
 
 def run ():
-  base = '/home/paul/code/Neutron/projects/personal-site'
+  base = '/home/paul/code/monolith/projects/personal-site'
   slide_template = 'slides.html'
   folder = 'talks'
   file = 'intro-to-graphql-with-python.md'
-  outdir = '/home/paul/code/Neutron/docs'
+  outdir = '/home/paul/code/monolith'
   
   infile = os.path.join(base, folder, file)
   
