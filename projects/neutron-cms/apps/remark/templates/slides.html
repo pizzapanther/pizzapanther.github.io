@@ -1,0 +1,21 @@
+<!DOCTYPE html>{% load static %}
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}">
+    <base target="_blank">
+    <link rel="stylesheet" href="{% static "css/slides.css" %}">
+  </head>
+  <body>
+    <textarea id="source">{{ content|safe }}</textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create({
+        highlightStyle: 'zenburn',
+        highlightLanguage: 'text',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>

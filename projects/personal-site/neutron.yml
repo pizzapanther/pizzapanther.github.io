@@ -1,5 +1,5 @@
-output: site
+output: docs
 folders:
   - talks
-    app: remark_slides
+    app: remark
     template: slides.html
