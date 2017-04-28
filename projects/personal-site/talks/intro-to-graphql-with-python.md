@@ -1,3 +1,8 @@
+class: inverse, spaced
+layout: true
+
+---
+
 class: middle, center
 
 # Intro to GraphQL with Python
