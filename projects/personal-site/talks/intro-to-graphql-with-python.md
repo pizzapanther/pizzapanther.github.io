@@ -41,7 +41,7 @@ A query language for APIs and a runtime for fulfilling those queries with your e
 # GraphQL Development Cycle
 
 - Backend: Develop API
-- Frontend: Use API as need
+- Frontend: Use API as needed
 - Backend: Change API when data changes
 
 ---
