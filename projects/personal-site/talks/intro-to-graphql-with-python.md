@@ -9,6 +9,8 @@ class: middle, center
 
 # Intro to GraphQL with Python
 
+[bit.ly/py-graphql](http://bit.ly/py-graphql)
+
 ---
 
 class: middle, center
