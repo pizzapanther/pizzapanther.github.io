@@ -1,30 +1,24 @@
 var gulp = require('gulp');
+
 var rollup = require('gulp-rollup');
+var buble = require('rollup-plugin-buble');
 
 gulp.task('build-js', function () {
   var js_files = [
-    "static/bfish/**/*.js",
-    "node_modules/neutron-graph/neutron-graph.js"
+    "static/nnote/**/*.js",
   ];
   
   return gulp.src(js_files)
-    .pipe(sourcemaps.init())
     .pipe(rollup({
-      "format": "iife",
-      "plugins": [
-        babel_rollup({
-          "presets": [["es2015", { "modules": false }]],
-          "plugins": ["external-helpers"]
-        })
-      ],
-      entry: './static/bfish/app.js',
+      format: "iife",
+      plugins: [buble()],
+      entry: './static/nnote/app.js',
       globals: {
         "vue": 'Vue',
         "vue-router": 'VueRouter',
         "vue-material": 'VueMaterial',
       },
-      external: ['vue', 'vue-router', 'vue-material'],
-      sourceMap: true
+      external: ['vue', 'vue-router', 'vue-material']
     }))
     .pipe(gulp.dest("static/nnote-dist"));
 });
@@ -38,10 +32,10 @@ gulp.task('build-js', function () {
 
 var build_tasks = ['build-js'];
 
-//gulp.task('watch', build_tasks, function () {
-//  gulp.watch("static/bfish/**/*.js", ['build-js']);
-//  gulp.watch("static/**/*.less", ['build-css']);
-//});
+gulp.task('watch', build_tasks, function () {
+  gulp.watch("static/nnote/**/*.js", ['build-js']);
+  //gulp.watch("static/**/*.less", ['build-css']);
+});
 
 gulp.task('default', build_tasks);
 
