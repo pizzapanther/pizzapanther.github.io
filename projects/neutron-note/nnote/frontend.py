@@ -16,6 +16,7 @@ JS = [
 
 CSS = [
   'vue-material.css',
+  'nnote-dist/app.css'
 ]
 
 IMAGES = [

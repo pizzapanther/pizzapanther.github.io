@@ -8,8 +8,8 @@ Vue.use(VueRouter);
 Vue.use(VueMaterial);
 
 Vue.material.registerTheme('default', {
-  primary: 'deep-purple',
-  accent: 'teal',
+  primary: 'teal',
+  accent: 'orange',
   warn: 'red',
   background: 'white'
 });
@@ -20,6 +20,5 @@ var app = new Vue({
   data: {},
   created: function () {
     document.querySelector('#splash').remove();
-    PageService.set_title();
   }
 });

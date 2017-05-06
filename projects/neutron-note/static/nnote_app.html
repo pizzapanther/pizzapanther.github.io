@@ -20,7 +20,7 @@
     -->
     {% endcomment %}
     
-    <title>{{ app.title }}</title>
+    <title>{{ app.name }}</title>
     
     <style>
       html, body {
@@ -48,7 +48,7 @@
   <body class="body">
     <div id="splash">
       <img src="{% static "icons/android-chrome-192x192.png" %}" alt="">
-      <h1>{{ app.title }}</h1>
+      <h1>{{ app.name }}</h1>
     </div>
     <div id="app">
       <md-toolbar class="nav-toolbar">
@@ -56,30 +56,19 @@
           <a class="md-title" href="/">
             <img src="{% static "img/logo-fish.svg" %}">
           </a>
-          {% verbatim %}
           <h2>
-            {{ page.short_title }}
-            <span v-if="page.short_title != page.app_name">&sdot; {{ page.app_name }}</span>
+            {{ app.name }}
           </h2>
-          {% endverbatim %}
-          <div>
-            <md-button class="md-icon-button md-raised md-accent" @click="open_dialog('search_dialog')">
-              <md-icon>search</md-icon>
-            </md-button>
-          </div>
+          <!--<div>-->
+            <!--side-->
+          <!--</div>-->
         </div>
       </md-toolbar>
       <div id="content">
         <router-view></router-view>
       </div>
-      <component v-bind:is="current_dialog"></component>
       <footer>
-        <router-link tag="md-button" :to="{name: 'page', params:{p: 'about'}}">
-          About Us
-        </router-link>
-        <router-link tag="md-button" :to="{name: 'page', params:{p: 'contact'}}">
-          Contact
-        </router-link>
+        
       </footer>
     </div>
     <script>

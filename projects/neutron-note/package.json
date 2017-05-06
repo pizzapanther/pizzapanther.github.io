@@ -12,6 +12,8 @@
     "axios": "^0.16.1",
     "buble": "^0.15.2",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.0",
     "gulp-rollup": "^2.11.0",
     "material-design-icons": "^3.0.1",
     "roboto-fontface": "^0.7.0",

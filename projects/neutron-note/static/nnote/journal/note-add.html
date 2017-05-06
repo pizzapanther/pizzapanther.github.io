@@ -1,0 +1,51 @@
+<div class="body-pad note add">
+  <md-card class="small-card">
+    <md-card-header>
+      <div class="md-title">Add A Note</div>
+    </md-card-header>
+    <md-card-content>
+      <form novalidate @submit.stop.prevent="submit">
+        <md-input-container>
+          <label>Title <em>(Optional)</em></label>
+          <md-input></md-input>
+        </md-input-container>
+        <md-input-container>
+          <label>Note <em>(Markdown Accepted)</em></label>
+          <md-textarea></md-textarea>
+        </md-input-container>
+        <h3>
+          <div>
+            Links
+          </div>
+          <div>
+            <md-button class="md-raised" @click.native="add_link()">
+              <md-icon>add</md-icon>
+              Add A Link
+            </md-button>
+          </div>
+        </h3>
+        <div class="links">
+          <ul>
+            <li v-for="(link, index) in links">
+              <h4>Link {{ index + 1 }}:</h4>
+              <md-input-container>
+                <label>Name/Description</label>
+                <md-input></md-input>
+              </md-input-container>
+              <md-input-container>
+                <label>URL</label>
+                <md-input></md-input>
+              </md-input-container>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </md-card-content>
+    <md-card-actions>
+      <md-button class="md-raised md-primary">
+        Add
+      </md-button>
+      <md-button class="md-cancel">Cancel</md-button>
+    </md-card-actions>
+  </md-card>
+</div>
