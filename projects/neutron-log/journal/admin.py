@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from journal.models import Entry
+
+@admin.register(Entry)
+class EntryAdmin(admin.ModelAdmin):
+  list_display = ('id', 'title', 'owner', 'modified')
+  raw_id_fields = ('owner',)
+  

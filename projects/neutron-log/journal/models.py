@@ -6,7 +6,7 @@ class Entry (models.Model):
   title = models.CharField(max_length=70, blank=True, null=True)
   description = models.TextField()
   
-  data = JSONField()
+  data = JSONField(blank=True, null=True)
   
   created = models.DateTimeField(auto_now_add=True)
   modified = models.DateTimeField(auto_now=True)
@@ -14,10 +14,18 @@ class Entry (models.Model):
   
   class Meta:
     ordering = ('-modified',)
+    verbose_name_plural = 'entries'
     
   def __str__ (self):
     if self.title:
       return self.title
       
     return 'Modified: {}'.format(self.modified)
-  
+    
+  @property
+  def links (self):
+    if self.data and 'links' in self.data:
+      return self.data['links']
+      
+    return []
+    
