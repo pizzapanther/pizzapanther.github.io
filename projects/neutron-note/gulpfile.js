@@ -26,7 +26,7 @@ gulp.task('build-js', function () {
       external: ['vue', 'vue-router', 'vue-material'],
       sourceMap: true
     }))
-    .pipe(gulp.dest("static/nlog-dist"));
+    .pipe(gulp.dest("static/nnote-dist"));
 });
 
 //gulp.task('build-css', function () {

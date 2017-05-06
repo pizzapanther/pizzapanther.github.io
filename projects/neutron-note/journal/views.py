@@ -4,8 +4,8 @@ from django.conf import settings
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 
-from nlog.release import RELEASE
-from nlog.frontend import CSS, FONTS, JS, tpl_files
+from nnote.release import RELEASE
+from nnote.frontend import CSS, FONTS, JS, tpl_files
 
 APP = {
   'name': 'Neutron Note',
@@ -23,5 +23,5 @@ def app (request):
     'debug': settings.DEBUG,
     'release': RELEASE,
   }
-  return TemplateResponse(request, 'nlog_app.html', context)
+  return TemplateResponse(request, 'nnote_app.html', context)
   

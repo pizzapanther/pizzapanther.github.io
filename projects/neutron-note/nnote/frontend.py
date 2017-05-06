@@ -11,7 +11,7 @@ JS = [
   #'plugins/vue.min.js',
   'axios.min.js',
   
-  'nlog/app.js'
+  'nnote-dist/app.js'
 ]
 
 CSS = [
@@ -30,7 +30,7 @@ FONTS = [
 
 def tpl_files ():
   tpls = []
-  base_dir = os.path.join(settings.BASE_DIR, 'static', 'nlog')
+  base_dir = os.path.join(settings.BASE_DIR, 'static', 'nnote')
   for root, dirs, files in os.walk(base_dir):
     for file in files:
       if file.endswith('.html'):
