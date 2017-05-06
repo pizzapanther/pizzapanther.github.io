@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
   'django.middleware.security.SecurityMiddleware',
   'django.contrib.sessions.middleware.SessionMiddleware',
+  'whitenoise.middleware.WhiteNoiseMiddleware',
   'django.middleware.common.CommonMiddleware',
   'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -119,6 +120,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static-compiled")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, "static"),
+  os.path.join(BASE_DIR, "node_modules", "vue", "dist"),
+  os.path.join(BASE_DIR, "node_modules", "vue-router", "dist"),
+  os.path.join(BASE_DIR, "node_modules", "vue-material", "dist"),
+  #os.path.join(BASE_DIR, "node_modules", "vue-analytics"),
+  #os.path.join(BASE_DIR, "node_modules", "raven-js"),
+  os.path.join(BASE_DIR, "node_modules", "axios", "dist"),
+  os.path.join(BASE_DIR, "node_modules", "material-design-icons", "iconfont"),
+  os.path.join(BASE_DIR, "node_modules", "roboto-fontface", "fonts", "Roboto"),
+]
 
 if SECRET_KEY == 'dev':
   from nlog.settings.dev import *

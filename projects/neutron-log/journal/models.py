@@ -1,12 +1,9 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.postgres.fields import JSONField
 
 class Entry (models.Model):
   title = models.CharField(max_length=70, blank=True, null=True)
   description = models.TextField()
-  
-  data = JSONField(blank=True, null=True)
   
   created = models.DateTimeField(auto_now_add=True)
   modified = models.DateTimeField(auto_now=True)
@@ -24,8 +21,22 @@ class Entry (models.Model):
     
   @property
   def links (self):
-    if self.data and 'links' in self.data:
-      return self.data['links']
-      
-    return []
+    return Link.objects.filter(entry=self)
+    
+class Link (models.Model):
+  title = models.CharField(max_length=100)
+  url = models.URLField(max_length=350)
+  sorder = models.IntegerField()
+  
+  entry = models.ForeignKey(Entry)
+  owner = models.ForeignKey(settings.AUTH_USER_MODEL)
+  
+  created = models.DateTimeField(auto_now_add=True)
+  modified = models.DateTimeField(auto_now=True)
+  
+  class Meta:
+    ordering = ('sorder', )
+    
+  def __str__ (self):
+    return self.title
     

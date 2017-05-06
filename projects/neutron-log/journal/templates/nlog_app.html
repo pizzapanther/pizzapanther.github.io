@@ -1,0 +1,97 @@
+<!doctype html>{% load static %}
+<html lang="en">
+  <head>
+    <!-- Release: {{ release }} -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="{{ app.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    {% comment %}
+    <!--
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "icons/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" href="{% static "icons/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static "icons/favicon-16x16.png" %}" sizes="16x16">
+    <link rel="manifest" href="{% url "manifest" %}">
+    <link rel="mask-icon" href="{% static "icons/safari-pinned-tab.svg" %}" color="#673ab7">
+    <link rel="shortcut icon" href="{% static "icons/favicon.ico" %}">
+    <meta name="msapplication-config" content="{% url "browserconfig" %}">
+    <meta name="theme-color" content="#ffffff">
+    -->
+    {% endcomment %}
+    
+    <title>{{ app.title }}</title>
+    
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      
+      #splash {
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #splash img {
+        width: 92px;
+      }
+    </style>
+    
+    {% for css in css_files %}
+    <link rel="stylesheet" href="{% static css %}">{% endfor %}
+  </head>
+  <body class="body">
+    <div id="splash">
+      <img src="{% static "icons/android-chrome-192x192.png" %}" alt="">
+      <h1>{{ app.title }}</h1>
+    </div>
+    <div id="app">
+      <md-toolbar class="nav-toolbar">
+        <div>
+          <a class="md-title" href="/">
+            <img src="{% static "img/logo-fish.svg" %}">
+          </a>
+          {% verbatim %}
+          <h2>
+            {{ page.short_title }}
+            <span v-if="page.short_title != page.app_name">&sdot; {{ page.app_name }}</span>
+          </h2>
+          {% endverbatim %}
+          <div>
+            <md-button class="md-icon-button md-raised md-accent" @click="open_dialog('search_dialog')">
+              <md-icon>search</md-icon>
+            </md-button>
+          </div>
+        </div>
+      </md-toolbar>
+      <div id="content">
+        <router-view></router-view>
+      </div>
+      <component v-bind:is="current_dialog"></component>
+      <footer>
+        <router-link tag="md-button" :to="{name: 'page', params:{p: 'about'}}">
+          About Us
+        </router-link>
+        <router-link tag="md-button" :to="{name: 'page', params:{p: 'contact'}}">
+          Contact
+        </router-link>
+      </footer>
+    </div>
+    <script>
+      var APP = {{ app_json|safe }};
+      var FONTS = [{% for f in fonts %}'{{ f }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+      var DEBUG = {% if debug %}true{% else %}false{% endif %};
+    </script>
+    {% for tpl in tpl_files %}
+    <script type="text/x-template" id="tpl-{{ tpl.path }}">
+      {{ tpl.content | safe }}
+    </script>{% endfor %}
+    {% for js in js_files %}
+    <script src="{% static js %}"></script>{% endfor %}
+  </body>
+</html>

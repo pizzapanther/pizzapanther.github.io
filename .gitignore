@@ -89,4 +89,6 @@ ENV/
 .ropeproject
 
 db.sqlite3
+node_modules/
+projects/neutron-log/static/nlog-dist/
 

@@ -1,0 +1,24 @@
+{
+  "name": "neutron-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "buble": "^0.15.2",
+    "gulp": "^3.9.1",
+    "gulp-rollup": "^2.11.0",
+    "material-design-icons": "^3.0.1",
+    "roboto-fontface": "^0.7.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-buble": "^0.15.0",
+    "vue": "^2.3.2",
+    "vue-material": "^0.7.1",
+    "vue-router": "^2.5.3"
+  }
+}
