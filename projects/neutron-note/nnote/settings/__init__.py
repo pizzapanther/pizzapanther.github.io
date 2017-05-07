@@ -40,6 +40,8 @@ INSTALLED_APPS = [
   'django.contrib.messages',
   'django.contrib.staticfiles',
   
+  'graphene_django',
+  
   'journal',
 ]
 
@@ -135,6 +137,10 @@ STATICFILES_DIRS = [
   os.path.join(BASE_DIR, "node_modules", "material-design-icons", "iconfont"),
   os.path.join(BASE_DIR, "node_modules", "roboto-fontface", "fonts", "Roboto"),
 ]
+
+GRAPHENE = {
+  'SCHEMA': 'nnote.schema.schema'\
+}
 
 if SECRET_KEY == 'dev':
   from nnote.settings.dev import *
