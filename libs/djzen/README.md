@@ -46,14 +46,14 @@ urlpatterns = [
 
 Built in types:
 
-| Indentifier | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| any         | Accepts any text.                                         |
-| float       | Accepts floating point values.                            |
-| int         | Accepts integers.                                         |
-| path        | Like string but accepts slashes.                          |
-| slug        | Accepts slugs (letters, numbers, underscores or hyphens). |
-| str         | Accepts any text without a slash.                         |
+| Indentifier  | Description                                                |
+| :----------- | :--------------------------------------------------------- |
+| any          | Accepts any text.                                          |
+| float        | Accepts floating point values.                             |
+| int          | Accepts integers.                                          |
+| path         | Like string but accepts slashes.                           |
+| slug         | Accepts slugs (letters, numbers, underscores or hyphens).  |
+| str          | Accepts any text without a slash.                          |
 
 Note: `zen_urls` can be mixed with Django URLs. `zen_url` immediately takes a
 URL and converts it to a valid Django URL object. `zen_url` will also pass

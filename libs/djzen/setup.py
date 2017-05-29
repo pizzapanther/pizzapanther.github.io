@@ -13,7 +13,7 @@ from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.05.02',
+  version = '17.5.2',
   description = 'Tools to streamline and simplify using Django.',
   long_description = long_description,
   classifiers = [
