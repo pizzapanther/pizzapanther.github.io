@@ -8,7 +8,7 @@ After teaching Django I found several aspects of the framework which could be st
 
 ## Features
 
-- Simplified URLs: Django uses Regex in its URLs which is very powerful and flexible. However, beginners often don't understand Regex and most of us don't ever use the full flexibility of Regex in URLs. Zen of Django provides a Flask style for defining URLs.
+- **Simplified URLs:** Django uses Regex in its URLs which is very powerful and flexible. However, beginners often don't understand Regex and most of us don't ever use the full flexibility of Regex in URLs. Zen of Django provides a Flask style for defining URLs.
 
 ## Installation
 
