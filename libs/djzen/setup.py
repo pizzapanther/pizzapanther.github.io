@@ -1,18 +1,19 @@
-from setuptools import setup, find_packages
-from codecs import open
-
 import os
+
+from setuptools import setup, find_packages
+
+import pypandoc
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-  long_description = f.read()
-  
+readme = os.path.join(here, 'README.md')
+long_description = pypandoc.convert(readme, 'rst', format='markdown_github')
+
 from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.05.01',
+  version = '17.05.02',
   description = 'Tools to streamline and simplify using Django.',
   long_description = long_description,
   classifiers = [
@@ -26,6 +27,6 @@ setup(
     'djzen',
   ],
   setup_requires=[
-    'pandoc',
+    'pypandoc',
   ],
 )
