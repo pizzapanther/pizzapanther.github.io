@@ -25,4 +25,7 @@ setup(
   packages = [
     'djzen',
   ],
+  setup_requires=[
+    'pandoc',
+  ],
 )

@@ -48,12 +48,12 @@ Built in types:
 
 | Indentifier | Description                                               |
 | ----------- | --------------------------------------------------------- |
-| str         | Accepts any text without a slash.                         |
-| slug        | Accepts slugs (letters, numbers, underscores or hyphens). |
+| any         | Accepts any text.                                         |
+| float       | Accepts floating point values.                            |
 | int         | Accepts integers.                                         |
-| float       | Like int but for floating point values.                   |
 | path        | Like string but accepts slashes.                          |
-
+| slug        | Accepts slugs (letters, numbers, underscores or hyphens). |
+| str         | Accepts any text without a slash.                         |
 
 Note: `zen_urls` can be mixed with Django URLs. `zen_url` immediately takes a
 URL and converts it to a valid Django URL object. `zen_url` will also pass
