@@ -2,20 +2,28 @@ import os
 
 from setuptools import setup, find_packages
 
-import pypandoc
-
 here = os.path.abspath(os.path.dirname(__file__))
 
-readme = os.path.join(here, 'README.md')
-long_description = pypandoc.convert(readme, 'rst', format='markdown_github')
-
+def get_readme ():
+  readme = os.path.join(here, 'README.md')
+  
+  try:
+    import pypandoc
+    
+  except ModuleNotFoundError:
+    with open(readme, 'r') as fh:
+      return fh.read()
+      
+  else:
+    return pypandoc.convert(readme, 'rst', format='markdown_github')
+    
 from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.5.2',
+  version = '17.5.3',
   description = 'Tools to streamline and simplify using Django.',
-  long_description = long_description,
+  long_description = get_readme(),
   classifiers = [
     'Framework :: Django',
   ],
@@ -29,4 +37,13 @@ setup(
   setup_requires=[
     'pypandoc',
   ],
+  install_requires = [
+    'Django>=1.11'
+  ],
+  extras_require = {
+    'dev': [
+      'twine',
+      'wheel',
+    ]
+  }
 )
