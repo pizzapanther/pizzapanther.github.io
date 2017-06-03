@@ -5,7 +5,7 @@ from django.conf.urls import url
 REGEX_PATTERNS = {
   'int': '({}\d+)',
   'slug': '({}\w+)',
-  'any': '({}.*?)',
+  'any': '({}.*)',
   'path': '({}\S+)',
   'str': '({}[^/\s]+)',
   'float': '({}\d+\.\d+|\d+\.*|\.\d+)',

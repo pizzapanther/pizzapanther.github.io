@@ -31,6 +31,7 @@ setup(
   author = 'Paul Bailey',
   author_email = 'djzen@neutrondrive.com',
   license = 'MIT',
+  entry_points = {'console_scripts': ['djzen = djzen.cli:zen_commands']},
   packages = [
     'djzen',
   ],
@@ -38,7 +39,8 @@ setup(
     'pypandoc',
   ],
   install_requires = [
-    'Django>=1.11'
+    'click>=6.7',
+    'Django>=1.11',
   ],
   extras_require = {
     'dev': [

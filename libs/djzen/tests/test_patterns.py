@@ -10,7 +10,7 @@ class Patterns (TestCase):
       
       ['articles/<int>/', r'^articles/(\d+)/$', False],
       ['articles/<int>/<slug>/', r'^articles/(\d+)/(\w+)/$', False],
-      ['page/<any>', r'^page/(.*?)$', False],
+      ['page/<any>', r'^page/(.*)$', False],
       ['page/<path>', r'^page/(\S+)$', False],
       ['page/<str>', r'^page/([^/\s]+)$', False],
       ['v/<float>', r'^v/(\d+\.\d+|\d+\.*|\.\d+)$', False],
