@@ -4,7 +4,12 @@ Tools to streamline and simplify using Django.
 
 ## Why the Zen of Django?
 
-After teaching Django I found several aspects of the framework which could be streamlined and simplified to help those learning the framework. Zen of Django is an attempt to add a few more sane defaults and tools to make Django easier for beginners. Once you grow in your Django knowledge, Zen of Django can be easiy removed.
+After teaching Django I found several aspects of the framework which could be
+streamlined and simplified to help those learning the framework. So I curated
+some best practices, pre-configured popular libraries, and simplified parts of
+Django. Both beginners and seasoned veterans can use Zen of Django to simplify
+and start faster. Each piece can be easily exchanged or removed once you out
+grow any of them.
 
 ## Features
 
