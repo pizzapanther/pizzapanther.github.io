@@ -35,6 +35,7 @@ Setup requirements.txt? [Y/n]: <enter>
 
 python manage.py devserver
 # or 
+python manage.py collectstatic
 python manage.py prodserver
 ```
 
