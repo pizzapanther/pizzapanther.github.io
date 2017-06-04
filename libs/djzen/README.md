@@ -24,7 +24,7 @@ After teaching Django I found several aspects of the framework which could be st
 
 ### Starting a `djzen` project
 
-`djzen startproject projectname directory`
+`djzen startproject [projectname] [directory]`
 
 *directory is optional*
 
