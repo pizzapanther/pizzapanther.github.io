@@ -15,10 +15,11 @@ After teaching Django I found several aspects of the framework which could be st
 - **SECRET_KEY Management:** The secret key is setup using environmental variables so you don't commit it to your repository by accident. A dot env file is also added and ignored in git for added safety.
 - **Git Ignore Setup:** Adds your secrets and db.sqlite3 to your `.gitingore` automatically.
 - **requirements.txt Setup:** Initializes a requirements.txt for you with the currently install Django and other libraries djzen depends on.
+- **pip-save Pre-configured:** `pip-save` is installed by default so you can easily add and track packages with `pip-save install new-package-name`.
 
 ## Installation
 
-1. `pip install djzen`
+`pip install djzen`
 
 ## Usage
 
@@ -39,6 +40,12 @@ Does the same thing as [runserver](https://docs.djangoproject.com/en/1.11/ref/dj
 `python manage.py prodserver`
 
 Does the same thing as [runuwsgi](http://django-uwsgi.readthedocs.io/en/master/command.html) just gives you a better indication of which environment you're running.
+
+### Installing Packages
+
+`pip-save install new-package-name`
+
+This will install the package and save it to your `requirements.txt`
 
 ### Simplified URLs
 

@@ -65,6 +65,21 @@ def startproject (name, directory):
   if directory:
     args.append(directory)
     
+  else:
+    while 1:
+      print('Install to:')
+      print('  [1] Current directory (recommended)')
+      print('  [2] {}'.format(name))
+      ans = click.prompt('Directory?', default='1')
+      if ans == '1':
+        directory = '.'
+        args.append(directory)
+        break
+        
+      elif ans == '2':
+        directory = name
+        break
+        
   args.append('--template')
   basedir = os.path.dirname(os.path.abspath(__file__))
   args.append(os.path.join(basedir, 'project_template'))
@@ -72,9 +87,6 @@ def startproject (name, directory):
   
   management.execute_from_command_line(args)
   
-  if not directory:
-    directory = os.path.join(os.getcwd(), name)
-    
   if os.path.exists(directory):
     if click.confirm('Setup .gitignore?', default=True):
       write_ignore(directory)
