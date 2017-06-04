@@ -53,6 +53,7 @@ setup(
     'Django>=1.11',
     'django-uwsgi>=0.1.6',
     'django-dotenv>=1.4.1',
+    'pip-save>=0.2.0',
     'uWSGI>=2.0.15',
     'whitenoise>=3.3.0',
   ],

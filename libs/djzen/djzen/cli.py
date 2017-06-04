@@ -24,7 +24,7 @@ def write_requirements (directory):
   for p in pkg_resources.working_set:
     pname = canonicalize_name(p.project_name)
     write = False
-    if pname.lower() in ['djzen', 'uwsgi', 'whitenoise']:
+    if pname.lower() in ['djzen', 'uwsgi', 'whitenoise', 'pip-save']:
       write = True
       
     elif pname.lower().startswith('django'):
@@ -68,7 +68,7 @@ def startproject (name, directory):
   args.append('--template')
   basedir = os.path.dirname(os.path.abspath(__file__))
   args.append(os.path.join(basedir, 'project_template'))
-  args.extend(['-n', '.env'])
+  args.extend(['-n', '.env', '-n', '.pipconfig'])
   
   management.execute_from_command_line(args)
   
