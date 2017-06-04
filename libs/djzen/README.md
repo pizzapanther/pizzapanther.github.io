@@ -36,7 +36,7 @@ Does the same thing as [runserver](https://docs.djangoproject.com/en/1.11/ref/dj
 
 ### Production Server
 
-`python manage.py devserver`
+`python manage.py prodserver`
 
 Does the same thing as [runuwsgi](http://django-uwsgi.readthedocs.io/en/master/command.html) just gives you a better indication of which environment you're running.
 
