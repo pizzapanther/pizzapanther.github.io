@@ -12,6 +12,7 @@ def write_ignore (directory):
     fh.write('\n# Added by djzen\n')
     fh.write('.env\n')
     fh.write('db.sqlite3\n')
+    fh.write('static-compiled\n')
     fh.write('# End djzen\n\n')
     
 def write_requirements (directory):
@@ -72,7 +73,7 @@ def startproject (name, directory):
       print('  [2] {}'.format(name))
       ans = click.prompt('Directory?', default='1')
       if ans == '1':
-        directory = '.'
+        directory = os.getcwd()
         args.append(directory)
         break
         
@@ -82,7 +83,8 @@ def startproject (name, directory):
         
   args.append('--template')
   basedir = os.path.dirname(os.path.abspath(__file__))
-  args.append(os.path.join(basedir, 'project_template'))
+  tpl = os.path.join(basedir, 'project_template')
+  args.append(tpl)
   args.extend(['-n', '.env', '-n', '.pipconfig'])
   
   management.execute_from_command_line(args)

@@ -26,6 +26,7 @@ setup(
   long_description = get_readme(),
   classifiers = [
     'Framework :: Django',
+    'Programming Language :: Python :: 3 :: Only',
   ],
   url = 'https://github.com/pizzapanther/pizzapanther.github.io/tree/master/libs/djzen',
   author = 'Paul Bailey',
@@ -41,6 +42,7 @@ setup(
     'djzen': [
       'project_template/*',
       'project_template/.env',
+      'project_template/.pipconfig',
       'project_template/project_name/*',
       'project_template/project_name/settings/*',
     ]
