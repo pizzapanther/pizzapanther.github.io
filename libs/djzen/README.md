@@ -82,3 +82,13 @@ Built in types:
 Note: `zen_urls` can be mixed with Django URLs. `zen_url` immediately takes a
 URL and converts it to a valid Django URL object. `zen_url` will also pass
 through any keyword arguments.
+
+### Static Files
+
+Static files will be served automatically with the production server. You only need to run the `collectstatic` command on deployment.
+
+`python manage.py collectstatic`
+
+### Secrets
+
+Secrets are stored in `.env` which use the DotEnv format. The values are loaded into environment automatically if a `.env` exists.
