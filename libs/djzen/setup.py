@@ -10,7 +10,7 @@ def get_readme ():
   try:
     import pypandoc
     
-  except ModuleNotFoundError:
+  except ImportError:
     with open(readme, 'r') as fh:
       return fh.read()
       
@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.5.3',
+  version = '17.6.1',
   description = 'Tools to streamline and simplify using Django.',
   long_description = get_readme(),
   classifiers = [
@@ -34,7 +34,17 @@ setup(
   entry_points = {'console_scripts': ['djzen = djzen.cli:zen_commands']},
   packages = [
     'djzen',
+    'djzen.management',
+    'djzen.management.commands',
   ],
+  package_data={
+    'djzen': [
+      'project_template/*',
+      'project_template/.env',
+      'project_template/project_name/*',
+      'project_template/project_name/settings/*',
+    ]
+  },
   setup_requires=[
     'pypandoc',
   ],
