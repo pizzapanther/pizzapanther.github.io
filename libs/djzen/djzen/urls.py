@@ -40,7 +40,7 @@ def convert_pattern (url, is_include):
   return regex
   
 def zen_url (*args, **kwargs):
-  is_include = isinstance(arg[1], tuple)
+  is_include = isinstance(args[1], tuple)
   pattern = convert_pattern(args[0], is_include)
   return url(pattern, *args[1:], **kwargs)
   

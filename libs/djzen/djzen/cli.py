@@ -1,3 +1,6 @@
+import os
+import shutil
+import sys
 
 import click
 from django.core import management
@@ -15,12 +18,22 @@ def startproject (name, directory):
   the current directory or optionally in the given directory.
   """
   
-  args = [name]
+  
+  exe = shutil.which('django-admin.py')
+  if exe is None:
+    print("Could not find django-admin.py. Is Django installed?")
+    sys.exit(1)
+    
+  args = [exe, 'startproject', name]
   if directory:
     args.append(directory)
     
-  print(args)
-  management.execute_from_command_line('startproject', *args)
+  args.append('--template')
+  basedir = os.path.dirname(os.path.abspath(__file__))
+  args.append(os.path.join(basedir, 'project_template'))
+  args.extend(['-n', '.env'])
+  
+  management.execute_from_command_line(args)
   
 if __name__ == '__main__':
   zen_commands()

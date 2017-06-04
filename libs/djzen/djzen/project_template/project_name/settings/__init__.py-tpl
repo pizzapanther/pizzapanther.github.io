@@ -1,0 +1,12 @@
+import os
+
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+
+print("Loading {} Settings".format(ENVIRONMENT.upper()))
+
+if ENVIRONMENT == 'production':
+    from {{ project_name }}.settings.production import *
+    
+else:
+    from {{ project_name }}.settings.development import *
+    

@@ -41,6 +41,8 @@ setup(
   install_requires = [
     'click>=6.7',
     'Django>=1.11',
+    'python-dotenv>=0.6.4',
+    'whitenoise>=3.3.0',
   ],
   extras_require = {
     'dev': [
