@@ -70,7 +70,7 @@ urlpatterns = [
 
 Built in types:
 
-| Indentifier  | Description                                                |
+| Identifier  | Description                                                |
 | :----------- | :--------------------------------------------------------- |
 | any          | Accepts any text.                                          |
 | float        | Accepts floating point values.                             |
