@@ -1,9 +1,13 @@
 import os
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+ENVIRONMENT = os.environ.get('ENVIRONMENT', '')
 
-print("Loading {} Settings".format(ENVIRONMENT.upper()))
-
+if ENVIRONMENT:
+    print("Loading {} Settings".format(ENVIRONMENT.upper()))
+    
+else:
+    print("Unknown ENV Loading DEVELOPMENT Settings")
+    
 if ENVIRONMENT == 'production':
     from {{ project_name }}.settings.production import *
     

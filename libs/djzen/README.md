@@ -9,6 +9,9 @@ After teaching Django I found several aspects of the framework which could be st
 ## Features
 
 - **Simplified URLs:** Django uses Regex in its URLs which is very powerful and flexible. However, beginners often don't understand Regex and most of us don't ever use the full flexibility of Regex in URLs. Zen of Django provides a Flask style for defining URLs.
+- **Production Ready Static File Serving:** Static file serving is configured out of the box using [WhiteNoise](http://whitenoise.evans.io/en/stable/)
+- **Settings Management:** Settings are split into development and production. Debug is turned off in production by default.
+- **SECRET_KEY Management:** The secret key is setup using environmental variables so you don't commit it to your repository by accident. The dot env file is also added to your Git Ignore for added safety.
 
 ## Installation
 

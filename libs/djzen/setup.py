@@ -41,7 +41,9 @@ setup(
   install_requires = [
     'click>=6.7',
     'Django>=1.11',
-    'python-dotenv>=0.6.4',
+    'django-uwsgi>=0.1.6',
+    'django-dotenv>=1.4.1',
+    'uWSGI>=2.0.15',
     'whitenoise>=3.3.0',
   ],
   extras_require = {
