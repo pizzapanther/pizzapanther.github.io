@@ -13,8 +13,8 @@ After teaching Django I found several aspects of the framework which could be st
 - **Production Ready Static File Serving:** Static file serving is configured out of the box using [WhiteNoise](http://whitenoise.evans.io/en/stable/). WhiteNoise provides simple static file serving with performance in mind.
 - **Settings Management:** Settings are split into development and production. Debug is turned off in production by default. It is also easy to add more environments.
 - **SECRET_KEY Management:** The secret key is setup using environmental variables so you don't commit it to your repository by accident. A dot env file is also added and ignored in git for added safety.
-- **ToDo: Git Ignore Setup:**
-- **ToDo: requirements.txt Setup:**
+- **Git Ignore Setup:** Adds your secrets and db.sqlite3 to your `.gitingore` automatically.
+- **requirements.txt Setup:** Initializes a requirements.txt for you with the currently install Django and other libraries djzen depends on.
 
 ## Installation
 
