@@ -28,7 +28,6 @@ pip install djzen
 djzen startproject [projectname]
 ```
 
-
 ## Usage
 
 ### Starting a `djzen` project
