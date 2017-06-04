@@ -25,7 +25,7 @@ After teaching Django I found several aspects of the framework which could be st
 
 ```
 pip install djzen
-djzen startproject [projectname]
+djzen startproject <projectname>
 Install to:
   [1] Current directory (recommended)
   [2] testproj
