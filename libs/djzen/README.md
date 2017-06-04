@@ -22,6 +22,24 @@ After teaching Django I found several aspects of the framework which could be st
 
 ## Usage
 
+### Starting a `djzen` project
+
+`djzen startproject projectname directory`
+
+*directory is optional*
+
+### Development Server
+
+`python manage.py devserver`
+
+Does the same thing as [runserver](https://docs.djangoproject.com/en/1.11/ref/django-admin/#runserver) just gives you a better indication of which environment you're running.
+
+### Production Server
+
+`python manage.py devserver`
+
+Does the same thing as [runuwsgi](http://django-uwsgi.readthedocs.io/en/master/command.html) just gives you a better indication of which environment you're running.
+
 ### Simplified URLs
 
 Sample URLcong (urls.py)
