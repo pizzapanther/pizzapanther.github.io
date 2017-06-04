@@ -21,6 +21,14 @@ After teaching Django I found several aspects of the framework which could be st
 
 `pip install djzen`
 
+## Quick Start
+
+```
+pip install djzen
+djzen startproject [projectname]
+```
+
+
 ## Usage
 
 ### Starting a `djzen` project
