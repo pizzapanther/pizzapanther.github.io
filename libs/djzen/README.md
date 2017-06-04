@@ -26,6 +26,16 @@ After teaching Django I found several aspects of the framework which could be st
 ```
 pip install djzen
 djzen startproject [projectname]
+Install to:
+  [1] Current directory (recommended)
+  [2] testproj
+Directory? [1]: <enter>
+Setup .gitignore? [Y/n]: <enter>
+Setup requirements.txt? [Y/n]: <enter>
+
+python manage.py devserver
+# or 
+python manage.py prodserver
 ```
 
 ## Usage
