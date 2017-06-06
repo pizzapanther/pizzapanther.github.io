@@ -13,5 +13,6 @@ class: middle, center
 <img src="https://dc-codecamp.herokuapp.com/static/img/dclogo.png" alt="DigitalCrafts Logo" style="width: 300px;">
 
 ### WiFi:
-- Wheelhouse 47
-- Password: cherished covertly windy staircase
+
+Wheelhouse 47<br>
+Password: cherished covertly windy staircase
