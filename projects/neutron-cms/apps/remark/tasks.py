@@ -7,7 +7,7 @@ def run ():
   base = '/home/paul/code/monolith/projects/personal-site'
   slide_template = 'slides.html'
   folder = 'talks'
-  file = 'intro-to-graphql-with-python.md'
+  file = 'dc-welcome.md'
   outdir = '/home/paul/code/monolith'
   
   infile = os.path.join(base, folder, file)
