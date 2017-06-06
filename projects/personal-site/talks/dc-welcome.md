@@ -15,4 +15,4 @@ class: middle, center
 ### WiFi:
 
 Wheelhouse 47<br>
-Password: cherished covertly windy staircase
+Password: `cherished covertly windy staircase`
