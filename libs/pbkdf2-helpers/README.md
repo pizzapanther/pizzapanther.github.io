@@ -4,7 +4,7 @@ Helper functions for implementing PBKDF2 password storage.
 
 ## Usage
 
-```
+```javascript
 var passhelper = require('pbkdf2-helpers');
 
 var hash = passhelper.create_hash('hotdog');

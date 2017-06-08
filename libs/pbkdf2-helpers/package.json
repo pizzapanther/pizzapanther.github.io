@@ -11,5 +11,6 @@
   "dependencies": {
     "crypto": "0.0.3",
     "pbkdf2": "^3.0.12"
-  }
+  },
+  "homepage": "https://github.com/pizzapanther/pizzapanther.github.io/tree/master/libs/pbkdf2-helpers"
 }
