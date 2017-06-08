@@ -25,6 +25,10 @@ module.exports = {
       matches = passhelper.matches('hotdog', db_storage_text);
     });
     
+    db_storage_text = passhelper.generate_storage('hotdog');
+    matches = passhelper.matches('hotdog', db_storage_text);
+    test.ok(matches);
+    
     test.done();
   }
 };

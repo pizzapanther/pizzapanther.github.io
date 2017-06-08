@@ -68,6 +68,10 @@ function matches (password, hash) {
 }
 
 function generate_storage (hash) {
+  if (typeof(hash) == 'string') {
+    hash = create_hash(hash);
+  }
+  
   return `pbkdf2_${hash.digest}$${hash.iterations}$${hash.salt}$${hash.hash}`;
 }
 
