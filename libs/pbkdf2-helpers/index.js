@@ -25,16 +25,42 @@ function create_hash (password, iter, keylen, digest) {
   };
 }
 
-function compare (password, stored_hash) {
-  var pass_parts = stored_hash.split('$');
-  var key = pbkdf2.pbkdf2Sync(
-    password,
-    pass_parts[2],
-    parseInt(pass_parts[1]),
-    256, 'sha256'
-  );
-  var hash = key.toString('hex');
-  if (hash === pass_parts[3]) {
+function matches (password, hash) {
+  var key;
+  var compare_str;
+  
+  if (typeof(hash) == 'string') {
+    let pass_parts = hash.split('$');
+    compare_str = pass_parts[3];
+    let digest = pass_parts[0].split('_');
+    if (digest[0] != 'pbkdf2') {
+      let error = new Error('Unsupported hash type, must be pbkdf2.');
+      throw error;
+    }
+    
+    var regex = /(\d+)/;
+    let keylen = parseInt(digest[1].match(regex)[0]);
+    
+    key = pbkdf2.pbkdf2Sync(
+      password,
+      pass_parts[2],
+      parseInt(pass_parts[1]),
+      keylen,
+      digest[1]
+    );
+  } else {
+    compare_str = hash.hash;
+    
+    key = pbkdf2.pbkdf2Sync(
+      password,
+      hash.salt,
+      hash.iterations,
+      hash.keylen,
+      hash.digest
+    );
+  }
+  
+  if (key.toString('hex') === compare_str) {
     return true;
   }
   
@@ -46,7 +72,8 @@ function generate_storage (hash) {
 }
 
 exports.create_hash = create_hash;
-exports.compare = compare;
+exports.compare = matches;
+exports.matches = matches;
 exports.generate_storage = generate_storage;
 
 
