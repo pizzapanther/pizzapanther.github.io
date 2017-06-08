@@ -14,7 +14,7 @@ passhelper.matches('hotdog', db_storage_text);
 passhelper.matches('not hotdog', db_storage_text);
 // returns false
 
-// Or to in two steps
+// Or two in two steps
 var hash = passhelper.create_hash('hotdog');
 var db_storage_text = passhelper.generate_storage(hash);
 
