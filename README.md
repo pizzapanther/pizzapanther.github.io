@@ -5,4 +5,4 @@ I got tired of having a bunch of repositories so I figured I'd try the whole mon
 ## Open Source Libraries
 
 - [Zen of Django](https://github.com/pizzapanther/pizzapanther.github.io/tree/master/libs/djzen): Tools for simplifing Django
-- [PBKDF2 Helpers](https://github.com/pizzapanther/pizzapanther.github.io/tree/master/libs/pbkdf2-helpers): Helper functions for implementing PBKDF2 password storage in Node.JS.
+- [PBKDF2 Helpers](https://github.com/pizzapanther/pizzapanther.github.io/tree/master/libs/pbkdf2-helpers): Helper functions for implementing PBKDF2 password storage in Node.js.
