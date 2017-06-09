@@ -1,0 +1,21 @@
+{
+  "name": "neutron-graph",
+  "version": "0.5.1",
+  "description": "A small GraphQL Query generator",
+  "main": "neutron-graph.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.bsh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pizzapanther/pizzapanther.github.io.git"
+  },
+  "keywords": [
+    "graphql",
+    "graphene"
+  ],
+  "author": "Paul Bailey <paul@neutrondrive.com>",
+  "license": "MIT",
+  "homepage": ""
+}

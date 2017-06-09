@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./node_modules/.bin/babel neutron-graph.js -o browser-dist/temp.js --presets es2015
+./node_modules/.bin/browserify -r ./browser-dist/temp.js:neutron-graph -o browser-dist/neutron-graph.js

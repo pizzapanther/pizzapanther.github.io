@@ -1,0 +1,21 @@
+{
+  "name": "neutron-graph",
+  "description": "A small GraphQL Query generator",
+  "main": "index.js",
+  "authors": [
+    "Paul Bailey <paul@neutrondrive.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "graphql",
+    "graphene"
+  ],
+  "homepage": "https://github.com/pizzapanther/Neutron-Graph",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
