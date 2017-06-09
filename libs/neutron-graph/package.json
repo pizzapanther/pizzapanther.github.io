@@ -1,6 +1,6 @@
 {
   "name": "neutron-graph",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A small GraphQL Query generator",
   "main": "neutron-graph.js",
   "scripts": {
@@ -17,5 +17,5 @@
   ],
   "author": "Paul Bailey <paul@neutrondrive.com>",
   "license": "MIT",
-  "homepage": ""
+  "homepage": "https://github.com/pizzapanther/pizzapanther.github.io/tree/master/libs/neutron-graph"
 }
