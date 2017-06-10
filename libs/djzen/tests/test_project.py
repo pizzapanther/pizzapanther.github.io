@@ -5,6 +5,7 @@ from unittest import TestCase
 
 class Project (TestCase):
   def setUp (self):
+    os.environ['SECRET_KEY'] = 'narf'
     self.name = 'testproj'
     self.files = [
       '.env',
