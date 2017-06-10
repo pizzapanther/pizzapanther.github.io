@@ -32,6 +32,7 @@ if __name__ == "__main__":
         os.environ.setdefault("ENVIRONMENT", "development")
         
     elif 'prodserver' in sys.argv or 'runuwsgi' in sys.argv:
+        os.environ.setdefault("UWSGI_MODULE", "{{ project_name }}.wsgi")
         os.environ.setdefault("ENVIRONMENT", "production")
         
     execute_from_command_line(sys.argv)
