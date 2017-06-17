@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.6.3',
+  version = '17.6.4',
   description = 'Tools to streamline and simplify using Django.',
   long_description = get_readme(),
   classifiers = [
@@ -53,7 +53,7 @@ setup(
   install_requires = [
     'click>=6.7',
     'Django>=1.11',
-    'django-uwsgi>=0.1.6',
+    'django-uwsgi-alt>=17.6.3',
     'django-dotenv>=1.4.1',
     'pip-save>=0.2.0',
     'uWSGI>=2.0.15',
