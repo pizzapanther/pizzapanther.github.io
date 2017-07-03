@@ -1,9 +1,11 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"neutron-graph":[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -19,7 +21,7 @@ var DataTransformer = exports.DataTransformer = function () {
   }
 
   _createClass(DataTransformer, [{
-    key: 'nodes',
+    key: "nodes",
     value: function nodes() {
       var node_data = [];
       this.data.edges.forEach(function (d) {
@@ -28,12 +30,12 @@ var DataTransformer = exports.DataTransformer = function () {
       return node_data;
     }
   }, {
-    key: 'first',
+    key: "first",
     value: function first() {
       return this.nodes()[0];
     }
   }, {
-    key: 'last',
+    key: "last",
     value: function last() {
       var nodes = this.nodes();
       return nodes[nodes.lenght - 1];
@@ -54,7 +56,7 @@ var QueryResult = exports.QueryResult = function () {
   }
 
   _createClass(QueryResult, [{
-    key: 'init_data_properties',
+    key: "init_data_properties",
     value: function init_data_properties(key) {
       this.data = {};
 
@@ -77,10 +79,11 @@ var Query = exports.Query = function () {
     this.options = options;
     this.all_queries = [];
     this.get_queries = [];
+    this.m_queries = [];
   }
 
   _createClass(Query, [{
-    key: 'promise',
+    key: "promise",
     value: function promise(callback) {
       if (this.options && this.options.promise) {
         return this.options.promise(callback);
@@ -89,58 +92,133 @@ var Query = exports.Query = function () {
       return new Promise(callback);
     }
   }, {
-    key: 'generate_query',
+    key: "to_filter",
+    value: function to_filter(value) {
+      var filter_string = '';
+
+      if (typeof value == "string") {
+        filter_string += "\"" + value + "\"";
+      } else if ((typeof value === "undefined" ? "undefined" : _typeof(value)) == "object") {
+        filter_string += this.deep_copy(value);
+      } else {
+        filter_string += "" + value;
+      }
+
+      return filter_string;
+    }
+  }, {
+    key: "to_attr",
+    value: function to_attr(attrs) {
+      var _this = this;
+
+      var attr_string = '';
+
+      if (typeof attrs == "string") {
+        attr_string += attrs + '\n';
+      } else if (attrs instanceof Array) {
+        attrs.forEach(function (attr) {
+          if (typeof attr == "string") {
+            attr_string += attr + '\n';
+          } else {
+            var value = _this.to_attr(attr);
+            attr_string += value + "\n";
+          }
+        });
+      } else {
+        for (var f in attrs) {
+          var value = this.to_attr(attrs[f]);
+          attr_string += f + " { " + value + " }\n";
+        }
+      }
+
+      return attr_string;
+    }
+  }, {
+    key: "deep_copy",
+    value: function deep_copy(obj) {
+      var _this2 = this;
+
+      var filter_string = '';
+
+      if (obj instanceof Array) {
+        var values = obj.map(function (value) {
+          return _this2.to_filter(value);
+        });
+        filter_string = values.join(" ");
+        return "[ " + filter_string + " ]";
+      } else {
+        for (var attr in obj) {
+          var value = this.to_filter(obj[attr]);
+          filter_string += attr + ": " + value + " ";
+        }
+        return "{ " + filter_string + " }";
+      }
+    }
+  }, {
+    key: "generate_query",
     value: function generate_query(opt, type) {
       var filter_string = '';
       if (opt.filters) {
         for (var f in opt.filters) {
-          var value = opt.filters[f];
-          if (typeof value == "string") {
-            filter_string += f + ': "' + value + '" ';
-          } else {
-            filter_string += f + ': ' + value + ' ';
-          }
+          var value = this.to_filter(opt.filters[f]);
+          filter_string += f + ": " + value + " ";
         }
 
         if (opt.first) {
-          filter_string += 'first: ' + opt.first + ' ';
+          filter_string += "first: " + opt.first + " ";
         } else if (opt.last) {
-          filter_string += 'last: ' + opt.last + ' ';
+          filter_string += "last: " + opt.last + " ";
         }
 
-        filter_string = '(' + filter_string + ')';
+        if (type == 'mutation') {
+          filter_string = '(input: {' + filter_string + '})';
+        } else {
+          filter_string = '(' + filter_string + ')';
+        }
       }
 
-      var attr_string = '';
-      if (typeof opt.attributes == "string") {
-        attr_string += opt.attributes + '\n';
-      } else {
-        opt.attributes.forEach(function (attr) {
-          attr_string += attr + '\n';
-        });
-      }
+      var attr_string = this.to_attr(opt.attributes);
 
       if (type == 'all') {
-        return '' + opt.node + filter_string + ' {\n        edges {\n          node {\n            ' + attr_string + '\n          }\n        }\n      }';
+        return "" + opt.node + filter_string + " {\n        edges {\n          node {\n            " + attr_string + "\n          }\n        }\n      }";
+      } else if (type == 'mutation') {
+        return "" + opt.node + filter_string + " {\n        " + attr_string + "\n      }";
       } else {
-        return '' + opt.node + filter_string + ' {\n        ' + attr_string + '\n      }';
+        return "" + opt.node + filter_string + " {\n        " + attr_string + "\n      }";
       }
     }
   }, {
-    key: 'submit',
+    key: "submit",
     value: function submit(config) {
       var graph = this;
       var query = '';
 
-      this.all_queries.forEach(function (qopts) {
-        query += graph.generate_query(qopts, 'all');
-      });
+      if (this.all_queries.length > 0 || this.get_queries.length > 0) {
+        this.all_queries.forEach(function (qopts) {
+          query += graph.generate_query(qopts, 'all');
+        });
 
-      this.get_queries.forEach(function (qopts) {
-        query += graph.generate_query(qopts, 'get');
-      });
+        this.get_queries.forEach(function (qopts) {
+          query += graph.generate_query(qopts, 'get');
+        });
 
-      query = 'query { ' + query + ' }';
+        query = "query { " + query + " }";
+      }
+
+      if (this.m_queries.length > 0) {
+        var mutation = '';
+        this.m_queries.forEach(function (qopts) {
+          qopts.filters = qopts.input;
+          mutation += graph.generate_query(qopts, 'mutation');
+        });
+
+        if (query.length > 0) {
+          query += '\n';
+        }
+
+        query += "mutation { " + mutation + " }";
+      }
+
       return graph.promise(function (resolve, reject) {
         var q = { query: query };
         graph.http.post(graph.url, q, config).then(function (response) {
@@ -151,7 +229,7 @@ var Query = exports.Query = function () {
       });
     }
   }, {
-    key: 'get',
+    key: "get",
     value: function get(opts) {
       /***
       opts:
@@ -162,7 +240,7 @@ var Query = exports.Query = function () {
       ***/
 
       if (opts.name) {
-        opts.id = btoa(opts.name + ':' + opts.id);
+        opts.id = btoa(opts.name + ":" + opts.id);
       }
 
       opts.filters = { id: opts.id };
@@ -171,7 +249,7 @@ var Query = exports.Query = function () {
       return this;
     }
   }, {
-    key: 'all',
+    key: "all",
     value: function all(qopts) {
       /***
       opts:
@@ -183,6 +261,19 @@ var Query = exports.Query = function () {
       ***/
 
       this.all_queries.push(qopts);
+      return this;
+    }
+  }, {
+    key: "mutate",
+    value: function mutate(qopts) {
+      /***
+      opts:
+        node: query node
+        input: inputs for the mutation
+        attributes: attributes to return
+      ***/
+
+      this.m_queries.push(qopts);
       return this;
     }
   }]);

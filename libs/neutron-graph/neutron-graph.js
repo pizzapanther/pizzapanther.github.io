@@ -46,6 +46,7 @@ export class Query {
     this.options = options;
     this.all_queries = [];
     this.get_queries = [];
+    this.m_queries = [];
   }
   
   promise (callback) {
@@ -56,16 +57,68 @@ export class Query {
     return new Promise(callback);
   }
   
+  to_filter (value) {
+    var filter_string = '';
+    
+    if (typeof(value) == "string") {
+      filter_string += `"${value}"`;
+    } else if (typeof(value) == "object") {
+      filter_string += this.deep_copy(value);
+    } else {
+      filter_string += `${value}`;
+    }
+    
+    return filter_string;
+  }
+  
+  to_attr (attrs) {
+    var attr_string = '';
+    
+    if (typeof(attrs) == "string") {
+      attr_string += attrs + '\n';
+    } else if (attrs instanceof Array) {
+      attrs.forEach((attr) => {
+        if (typeof(attr) == "string") {
+          attr_string += attr + '\n';
+        } else {
+          let value = this.to_attr(attr);
+          attr_string += `${value}\n`;
+        }
+      });
+    } else {
+      for (let f in attrs) {
+        let value = this.to_attr(attrs[f]);
+        attr_string += `${f} { ${value} }\n`;
+      }
+    }
+    
+    return attr_string;
+  }
+  
+  deep_copy (obj) {
+    var filter_string = '';
+    
+    if (obj instanceof Array) {
+      let values = obj.map((value) => {
+        return this.to_filter(value)
+      });
+      filter_string = values.join(" ");
+      return `[ ${filter_string} ]`;
+    } else {
+      for (let attr in obj) {
+        let value = this.to_filter(obj[attr]);
+        filter_string += `${attr}: ${value} `;
+      }
+      return `{ ${filter_string} }`;
+    }
+  }
+  
   generate_query (opt, type) {
     var filter_string = '';
     if (opt.filters) {
       for (var f in opt.filters) {
-        let value = opt.filters[f];
-        if (typeof(value) == "string") {
-          filter_string += `${f}: "${value}" `;
-        } else {
-          filter_string += `${f}: ${value} `;
-        }
+        let value = this.to_filter(opt.filters[f]);
+        filter_string += `${f}: ${value} `;
       }
       
       if (opt.first) {
@@ -74,17 +127,14 @@ export class Query {
         filter_string += `last: ${opt.last} `;
       }
       
-      filter_string = '(' + filter_string + ')';
+      if (type == 'mutation') {
+        filter_string = '(input: {' + filter_string + '})';
+      } else {
+        filter_string = '(' + filter_string + ')'; 
+      }
     }
     
-    var attr_string = '';
-    if (typeof(opt.attributes) == "string") {
-      attr_string += opt.attributes + '\n';
-    } else {
-      opt.attributes.forEach(function (attr) {
-        attr_string += attr + '\n';
-      });
-    }
+    var attr_string = this.to_attr(opt.attributes);
     
     if (type == 'all') {
       return `${opt.node}${filter_string} {
@@ -93,6 +143,10 @@ export class Query {
             ${attr_string}
           }
         }
+      }`;
+    } else if (type == 'mutation') { 
+      return `${opt.node}${filter_string} {
+        ${attr_string}
       }`;
     } else {
       return `${opt.node}${filter_string} {
@@ -105,15 +159,32 @@ export class Query {
     var graph = this;
     var query = '';
     
-    this.all_queries.forEach(function (qopts) {
-      query += graph.generate_query(qopts, 'all');
-    });
+    if (this.all_queries.length > 0 || this.get_queries.length > 0) {
+      this.all_queries.forEach(function (qopts) {
+        query += graph.generate_query(qopts, 'all');
+      });
+      
+      this.get_queries.forEach(function (qopts) {
+        query += graph.generate_query(qopts, 'get');
+      });
+      
+      query = `query { ${query} }`;
+    }
     
-    this.get_queries.forEach(function (qopts) {
-      query += graph.generate_query(qopts, 'get');
-    });
+    if (this.m_queries.length > 0) {
+      let mutation = '';
+      this.m_queries.forEach(function (qopts) {
+        qopts.filters = qopts.input;
+        mutation += graph.generate_query(qopts, 'mutation');
+      });
+      
+      if (query.length > 0) {
+        query += '\n'
+      }
+      
+      query += `mutation { ${mutation} }`;
+    }
     
-    query = `query { ${query} }`;
     return graph.promise(function (resolve, reject) {
       var q = {query: query};
       graph.http.post(graph.url, q, config).then(function (response) {
@@ -154,6 +225,18 @@ export class Query {
     ***/
     
     this.all_queries.push(qopts);
+    return this;
+  }
+  
+  mutate(qopts) {
+    /***
+    opts:
+      node: query node
+      input: inputs for the mutation
+      attributes: attributes to return
+    ***/
+    
+    this.m_queries.push(qopts);
     return this;
   }
 }

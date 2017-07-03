@@ -1,6 +1,6 @@
 {
   "name": "neutron-graph",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "description": "A small GraphQL Query generator",
   "main": "neutron-graph.js",
   "scripts": {
