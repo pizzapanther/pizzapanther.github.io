@@ -32,7 +32,7 @@ GraphAPI().data_graph().all(query).submit().then(function(response) {
 ## ES6 Usage
 
 ```javascript
-import DataGraph from './node_modules/neutron-graph/neutron-graph';
+import DataGraph from 'neutron-graph';
 
 var verses;
 var GraphAPI = DataGraph('/data-graph');
