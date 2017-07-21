@@ -61,7 +61,7 @@ export class Query {
     var filter_string = '';
     
     if (typeof(value) == "string") {
-      filter_string += `"${value}"`;
+      filter_string += JSON.stringify(value);
     } else if (typeof(value) == "object") {
       filter_string += this.deep_copy(value);
     } else {
