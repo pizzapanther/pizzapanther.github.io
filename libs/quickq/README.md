@@ -74,3 +74,7 @@ QQ_TOKEN_ALGORITHMS: Default ['HS256']
 QQ_URL_NAME: Default 'taskinator'
 QQ_REQUEST_TIMEOUT: Default 60
 ```
+
+## Future Goals
+
+- add task retries
