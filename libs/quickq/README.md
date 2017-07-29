@@ -1,6 +1,6 @@
 # Django Quick Queue
 
-Django Quick Queue is a fast and simple way to use async tasks in Django. This package has a limited use case. If you are looking for a more complex async task systems you should try Django Q, Celery, or Huey. Quick Queue is meant to give you the simplest method to started executing small asynchronous tasks.
+Django Quick Queue is a fast and simple way to use async tasks in Django. This package has a limited use case. If you are looking for a more complex async task systems you should try Django Q, Celery, or Huey. Quick Queue is meant to give you the simplest method to get started executing small asynchronous tasks.
 
 # Installation
 
@@ -75,6 +75,14 @@ QQ_URL_NAME: Default 'taskinator'
 QQ_REQUEST_TIMEOUT: Default 60
 ```
 
+## Scaling
+
+While Quick Queue is limited it still could scaled in with a few tricks.
+
+- Run a separate web server just for Queue tasks. This would allow you scale your task queue differently and change your request timeout values.
+- additional?
+
 ## Future Goals
 
 - add task retries
+- multiple queue URLs
