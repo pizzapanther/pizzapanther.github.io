@@ -21,8 +21,8 @@ from setuptools import setup
 
 setup(
   name = 'quickq',
-  version = '17.8.1',
-  description = 'The quickest way to execute async tasks with Django.',
+  version = '17.8.4',
+  description = 'The quickest way to setup async tasks with Django.',
   long_description = get_readme(),
   classifiers = [
     'Framework :: Django',
@@ -32,12 +32,8 @@ setup(
   author = 'Paul Bailey',
   author_email = 'quickq@neutrondrive.com',
   license = 'MIT',
-  packages = [
-    'quickq',
-  ],
-  setup_requires=[
-    'pypandoc',
-  ],
+  py_modules = ['quickq'],
+  setup_requires=['pypandoc'],
   install_requires = [
     'Django>=1.11',
     'pyjwt',

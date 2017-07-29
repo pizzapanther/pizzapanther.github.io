@@ -11,6 +11,7 @@ from requests_futures.sessions import FuturesSession
 TOKEN_EXPIRATION = getattr(settings, 'QQ_TOKEN_EXPIRATION', 60)
 TOKEN_ALGORITHMS = getattr(settings, 'QQ_TOKEN_ALGORITHMS', ['HS256'])
 URL_NAME = getattr(settings, 'QQ_URL_NAME', 'taskinator')
+BASE_URL = getattr(settings, 'QQ_BASE_URL')
 
 class Task:
   def __init__ (self, *args, **kw):
@@ -33,7 +34,7 @@ class Task:
     }
     
     token = jwt.encode(payload, settings.SECRET_KEY, algorithm=TOKEN_ALGORITHMS[0])
-    url = settings.BASE_URL + reverse(URL_NAME, args=[token])
+    url = BASE_URL + reverse(URL_NAME, args=[token])
     session = FuturesSession()
     future = session.get(url, timeout=60)
     
