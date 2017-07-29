@@ -39,6 +39,11 @@ def send_approved (name, slug, email):
       [email],
       fail_silently=False,
     )
+    
+# With a custom Timeout
+@Task(timeout=120)
+def another_task ():
+  do_stuff()
 ```
 
 ### 5. Execute your task as normal
@@ -59,7 +64,7 @@ send_email('Narf', 'narf-me', 'narf@aol.com')
 ## Limitations
 
 - Function arguments are converted to JSON so they must be JSON compatible.
-- Request time may be limited. If your webserver has a limitation on request time then that will also affect how long your tasks can execute since they are simply web requests.
+- Request time may be limited. If your webserver has a limitation on request time then that will also affect how long your tasks can execute since they are simply web requests. The request is also limited by the `QQ_REQUEST_TIMEOUT` setting.
 
 ## Additional Settings
 
@@ -67,4 +72,5 @@ send_email('Narf', 'narf-me', 'narf@aol.com')
 QQ_TOKEN_EXPIRATION: Default 60
 QQ_TOKEN_ALGORITHMS: Default ['HS256']
 QQ_URL_NAME: Default 'taskinator'
+QQ_REQUEST_TIMEOUT: Default 60
 ```
