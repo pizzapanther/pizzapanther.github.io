@@ -100,7 +100,7 @@ export class Query {
     
     if (obj instanceof Array) {
       let values = obj.map((value) => {
-        return this.to_filter(value)
+        return this.to_filter(value);
       });
       filter_string = values.join(" ");
       return `[ ${filter_string} ]`;
@@ -111,6 +111,21 @@ export class Query {
       }
       return `{ ${filter_string} }`;
     }
+  }
+  
+  to_pageinfo (page_info) {
+    var r = '';
+    
+    if (page_info) {
+      r = 'pageInfo {';
+      if (page_info instanceof Array) {
+        r += page_info.join(" ") + '}';
+      } else {
+        r += page_info + '}';
+      }
+    }
+    
+    return r;
   }
   
   generate_query (opt, type) {
@@ -135,6 +150,7 @@ export class Query {
     }
     
     var attr_string = this.to_attr(opt.attributes);
+    var page_string = this.to_pageinfo(opt.page_info);
     
     if (type == 'all') {
       return `${opt.node}${filter_string} {

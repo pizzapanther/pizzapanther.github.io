@@ -97,7 +97,7 @@ var Query = exports.Query = function () {
       var filter_string = '';
 
       if (typeof value == "string") {
-        filter_string += "\"" + value + "\"";
+        filter_string += JSON.stringify(value);
       } else if ((typeof value === "undefined" ? "undefined" : _typeof(value)) == "object") {
         filter_string += this.deep_copy(value);
       } else {
@@ -155,6 +155,22 @@ var Query = exports.Query = function () {
       }
     }
   }, {
+    key: "to_pageinfo",
+    value: function to_pageinfo(page_info) {
+      var r = '';
+
+      if (page_info) {
+        r = 'pageInfo {';
+        if (page_info instanceof Array) {
+          r += page_info.join(" ") + '}';
+        } else {
+          r += page_info + '}';
+        }
+      }
+
+      return r;
+    }
+  }, {
     key: "generate_query",
     value: function generate_query(opt, type) {
       var filter_string = '';
@@ -178,6 +194,7 @@ var Query = exports.Query = function () {
       }
 
       var attr_string = this.to_attr(opt.attributes);
+      var page_string = this.to_pageinfo(opt.page_info);
 
       if (type == 'all') {
         return "" + opt.node + filter_string + " {\n        edges {\n          node {\n            " + attr_string + "\n          }\n        }\n      }";
