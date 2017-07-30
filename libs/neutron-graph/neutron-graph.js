@@ -150,15 +150,17 @@ export class Query {
     }
     
     var attr_string = this.to_attr(opt.attributes);
-    var page_string = this.to_pageinfo(opt.page_info);
     
     if (type == 'all') {
+      var page_string = this.to_pageinfo(opt.page_info);
+      
       return `${opt.node}${filter_string} {
         edges {
           node {
             ${attr_string}
           }
         }
+        ${page_string}
       }`;
     } else if (type == 'mutation') { 
       return `${opt.node}${filter_string} {
