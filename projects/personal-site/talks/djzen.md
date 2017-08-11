@@ -120,4 +120,4 @@ djzen startproject myproject
 
 # What's Your Pain?
 
-### Tweet: `#DjangoPain @pizzapanther`
+### Tweet Me: `#DjangoPain @pizzapanther`
