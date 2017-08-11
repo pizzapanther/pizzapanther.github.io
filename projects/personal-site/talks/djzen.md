@@ -20,7 +20,7 @@ class: middle, center
 - Instructor @ [DigitalCrafts](http://www.digitalcrafts.com/)
 - Building voice apps with Django
     - [Neutron.Academy](https://www.neutron.academy/)
-    - *"OK Google, talk Neutron Academy"*
+    - *"OK Google, talk with Neutron Academy"*
 - Twitter: [@PizzaPanther](https://twitter.com/pizzapanther)
 
 ---
