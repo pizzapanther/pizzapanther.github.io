@@ -87,8 +87,12 @@ export class Query {
       });
     } else {
       for (let f in attrs) {
-        let value = this.to_attr(attrs[f]);
-        attr_string += `${f} { ${value} }\n`;
+        if (!attrs[f]) {
+          attr_string += `${f} \n`;
+        } else {
+          let value = this.to_attr(attrs[f]);
+          attr_string += `${f} { ${value} }\n`;
+        }
       }
     }
     
