@@ -75,7 +75,7 @@ export class Query {
     var attr_string = '';
     
     if (typeof(attrs) == "string") {
-      attr_string += attrs + '\n';
+      attr_string += `${attrs}\n`;
     } else if (attrs instanceof Array) {
       attrs.forEach((attr) => {
         if (typeof(attr) == "string") {
@@ -87,18 +87,16 @@ export class Query {
       });
     } else {
       if (attrs.filters) {
-        let filter_string = '(';
+        attr_string += '(';
         
         for (let f in attrs.filters) {
           let value = this.to_filter(attrs.filters[f]);
-          filter_string += `${f}: ${value} `;
+          attr_string += `${f}: ${value} `;
         }
         
-        filter_string += ')';
-        attr_string += filter_string;
+        attr_string += ')';
+        attr_string += ' {';
       }
-      
-      attr_string += ' {';
       
       for (let f in attrs) {
         if (f != 'filters') {
@@ -106,12 +104,19 @@ export class Query {
             attr_string += `${f}\n`;
           } else {
             let value = this.to_attr(attrs[f]);
-            attr_string += `${f}${value}\n`;
+            
+            if (attrs[f].filters) {
+              attr_string += `${f} ${value}\n`;
+            } else {
+              attr_string += `${f} { ${value} }\n`;
+            }
           }
         }
       }
       
-      attr_string += ' }';
+      if (attrs.filters) {
+        attr_string += ' }';
+      }
     }
     
     return attr_string;
