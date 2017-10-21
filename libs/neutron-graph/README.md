@@ -15,9 +15,10 @@ var neutron_graph = require('neutron-graph');
 GraphAPI = neutron_graph.default('/graphql', {http: $http, promise: $q});
 
 var query = {
-  node: 'allSchedules',
-  filters: {user_RemoteUserId: 5},
-  attributes: ['id', 'sunday', 'monday',]
+  allSchedules {
+    filters: {user_RemoteUserId: 5},
+    edges: {node: ['id', 'sunday', 'monday']}
+  }
 };
 
 GraphAPI().data_graph().all(query).submit().then(function(response) {
@@ -36,9 +37,10 @@ var verses;
 var GraphAPI = DataGraph('/data-graph');
 
 var query = {
-  node: 'allVerses',
-  filters: {book_Slug: 'my-book', chapter: 2},
-  attributes: ['text', 'verse']
+  allVerses: {
+    filters: {book_Slug: 'my-book', chapter: 2},
+    edges: {node: ['text', 'verse']}
+  }
 };
 
 GraphAPI().all(query).submit().then(function (result) {
