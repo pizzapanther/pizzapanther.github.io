@@ -156,6 +156,14 @@ export class Query {
   }
   
   generate_query (opt, type) {
+    if (opt.node) {
+      return this.old_generate_query(opt, type);
+    } else {
+      return this.to_attr(opt);
+    }
+  }
+  
+  old_generate_query (opt, type) {
     var filter_string = '';
     if (opt.filters) {
       for (var f in opt.filters) {
