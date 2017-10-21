@@ -4,11 +4,11 @@ from django.template import Context, Template
 from django.template.loader import render_to_string
 
 def run ():
-  base = '/home/paul/code/monolith/projects/personal-site'
+  base = '/data/data/com.termux/files/home/code/pizzapanther.github.io/projects/personal-site'
   slide_template = 'slides.html'
   folder = 'talks'
-  file = 'dc-welcome.md'
-  outdir = '/home/paul/code/monolith'
+  file = 'djzen.md'
+  outdir = '/data/data/com.termux/files/home/code/pizzapanther.github.io'
   
   infile = os.path.join(base, folder, file)
   

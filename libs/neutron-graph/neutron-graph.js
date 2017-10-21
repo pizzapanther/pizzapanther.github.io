@@ -104,6 +104,11 @@ export class Query {
         if (f != 'filters') {
           let value = this.to_attr(attrs[f]);
           attr_string += `${f}${value}\n`;
+        } else if (!attrs[f]) {
+          attr_string += `${f} \n`;
+        } else {
+          let value = this.to_attr(attrs[f]);
+          attr_string += `${f} { ${value} }\n`;
         }
       }
       
