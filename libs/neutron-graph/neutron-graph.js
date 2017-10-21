@@ -86,11 +86,11 @@ export class Query {
         }
       });
     } else {
-      if (attr.filters) {
+      if (attrs.filters) {
         let filter_string = '(';
         
-        for (let f in attr.filters) {
-          let value = this.to_filter(att.filters[f]);
+        for (let f in attrs.filters) {
+          let value = this.to_filter(attrs.filters[f]);
           filter_string += `${f}: ${value} `;
         }
         
