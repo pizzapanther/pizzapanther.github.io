@@ -86,10 +86,28 @@ export class Query {
         }
       });
     } else {
-      for (let f in attrs) {
-        let value = this.to_attr(attrs[f]);
-        attr_string += `${f} { ${value} }\n`;
+      if (attr.filters) {
+        let filter_string = '(';
+        
+        for (let f in attr.filters) {
+          let value = this.to_filter(att.filters[f]);
+          filter_string += `${f}: ${value} `;
+        }
+        
+        filter_string += ')';
+        attr_string += filter_string;
       }
+      
+      attr_string += ' {';
+      
+      for (let f in attrs) {
+        if (f != 'filters') {
+          let value = this.to_attr(attrs[f]);
+          attr_string += `${f}${value}\n`;
+        }
+      }
+      
+      attr_string += ' }';
     }
     
     return attr_string;

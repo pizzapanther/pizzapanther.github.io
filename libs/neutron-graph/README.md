@@ -6,9 +6,7 @@ A small GraphQL Query generator
 - Promise based HTTP client (Default: Axios or $http for Angular)
 - ES6 style Promises (Default: Promise or $q for Angular)
 
-## Browser Based Usage
-
-Include Script: `browser-dist/neutron-graph.js `
+## ES5 Usage
 
 Usage:
 

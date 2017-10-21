@@ -1,11 +1,10 @@
 {
   "name": "neutron-graph",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A small GraphQL Query generator",
   "main": "neutron-graph.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./build.bsh"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
