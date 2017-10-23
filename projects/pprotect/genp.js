@@ -1,5 +1,5 @@
 function genpass () {
-  var p = document.getElementById('password');
+  var p = document.getElementById('password').value;
   p = encodeURIComponent(btoa(p));
 
   var s = document.getElementById('stag');
