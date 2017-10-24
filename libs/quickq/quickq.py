@@ -1,6 +1,6 @@
 import datetime
 from importlib import import_module
-import threading
+from multiprocessing import Process
 
 from django import http
 from django.conf import settings
@@ -41,7 +41,7 @@ class Task:
     
     token = jwt.encode(payload, settings.SECRET_KEY, algorithm=TOKEN_ALGORITHMS[0])
     url = BASE_URL + reverse(URL_NAME, args=[token])
-    t = threading.Thread(target=async_request, args=(url, self.timeout))
+    t = Process(target=async_request, args=(url, self.timeout))
     t.daemon = True
     t.start()
     
