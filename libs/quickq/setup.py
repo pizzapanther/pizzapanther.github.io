@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'quickq',
-  version = '17.8.5',
+  version = '17.10.1',
   description = 'The quickest way to setup async tasks with Django.',
   long_description = get_readme(),
   classifiers = [

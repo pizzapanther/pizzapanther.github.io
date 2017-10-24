@@ -1,3 +1,4 @@
+from concurrent.futures import ProcessPoolExecutor
 import datetime
 from importlib import import_module
 
@@ -10,6 +11,7 @@ from requests_futures.sessions import FuturesSession
 
 TOKEN_EXPIRATION = getattr(settings, 'QQ_TOKEN_EXPIRATION', 60)
 REQUEST_TIMEOUT = getattr(settings, 'QQ_REQUEST_TIMEOUT', 60)
+REQUEST_MAX_PROCESSES = getattr(settings, 'QQ_MAX_PROCESSES', 10)
 TOKEN_ALGORITHMS = getattr(settings, 'QQ_TOKEN_ALGORITHMS', ['HS256'])
 URL_NAME = getattr(settings, 'QQ_URL_NAME', 'taskinator')
 BASE_URL = getattr(settings, 'QQ_BASE_URL')
@@ -36,7 +38,7 @@ class Task:
     
     token = jwt.encode(payload, settings.SECRET_KEY, algorithm=TOKEN_ALGORITHMS[0])
     url = BASE_URL + reverse(URL_NAME, args=[token])
-    session = FuturesSession()
+    session = FuturesSession(executor=ProcessPoolExecutor(max_workers=REQUEST_MAX_PROCESSES))
     future = session.get(url, timeout=self.timeout)
     
 def taskinator (request, token):
