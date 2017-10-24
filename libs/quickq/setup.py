@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'quickq',
-  version = '17.10.1',
+  version = '17.10.3',
   description = 'The quickest way to setup async tasks with Django.',
   long_description = get_readme(),
   classifiers = [
@@ -37,7 +37,7 @@ setup(
   install_requires = [
     'Django>=1.11',
     'pyjwt',
-    'requests-futures',
+    'requests',
   ],
   extras_require = {
     'dev': [

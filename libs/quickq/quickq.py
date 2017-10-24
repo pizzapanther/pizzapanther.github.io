@@ -1,13 +1,13 @@
-from concurrent.futures import ProcessPoolExecutor
 import datetime
 from importlib import import_module
+import threading
 
 from django import http
 from django.conf import settings
 from django.urls import reverse
 
 import jwt
-from requests_futures.sessions import FuturesSession
+import requests
 
 TOKEN_EXPIRATION = getattr(settings, 'QQ_TOKEN_EXPIRATION', 60)
 REQUEST_TIMEOUT = getattr(settings, 'QQ_REQUEST_TIMEOUT', 60)
@@ -16,6 +16,9 @@ TOKEN_ALGORITHMS = getattr(settings, 'QQ_TOKEN_ALGORITHMS', ['HS256'])
 URL_NAME = getattr(settings, 'QQ_URL_NAME', 'taskinator')
 BASE_URL = getattr(settings, 'QQ_BASE_URL')
 
+def async_request (url, timeout):
+  requests.get(url, timeout=timeout)
+  
 class Task:
   def __init__ (self, timeout=REQUEST_TIMEOUT):
     self.timeout = timeout
@@ -38,8 +41,9 @@ class Task:
     
     token = jwt.encode(payload, settings.SECRET_KEY, algorithm=TOKEN_ALGORITHMS[0])
     url = BASE_URL + reverse(URL_NAME, args=[token])
-    session = FuturesSession(executor=ProcessPoolExecutor(max_workers=REQUEST_MAX_PROCESSES))
-    future = session.get(url, timeout=self.timeout)
+    t = threading.Thread(target=async_request, args=(url, self.timeout))
+    t.daemon = True
+    t.start()
     
 def taskinator (request, token):
   payload = jwt.decode(token, settings.SECRET_KEY, algorithms=TOKEN_ALGORITHMS)
