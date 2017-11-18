@@ -72,23 +72,12 @@ A query language for APIs and a runtime for fulfilling those queries with your e
 from deck.models import Deck, Card
 
 class CardNode (DjangoObjectType):
-  full_question = String(source='full_question')
-  answer = String(source='answer')
-  
   class Meta:
     model = Card
     filter_fields = ['modified', 'created']
     interfaces = (relay.Node, )
           
-class DeckNode (DjangoObjectType):
-  card_count = Int(source='card_count')
-  owner_id = Int(source='owner_id')
-  short_description = String(source='short_description')
-  all_cards = relay.ConnectionField(CardConnection)
-  
-  def resolve_all_cards (self, args, context, info):
-    return self.all_cards()
-    
+class DeckNode (DjangoObjectType):  
   class Meta:
     model = Deck
     interfaces = (relay.Node, )
