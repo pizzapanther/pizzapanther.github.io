@@ -59,24 +59,22 @@ A query language for APIs and a runtime for fulfilling those queries with your e
 # Django GraphQL Example
 
 ```python
-from bible.models import Bible, Book, Verse
+from deck.models import Deck, Card
 
-class BookNode(DjangoObjectType):
+class CardNode (DjangoObjectType):
   class Meta:
-    model = Book
-    filter_fields = ('slug', 'bible__slug')
+    model = Card
+    filter_fields = ['modified', 'created']
     interfaces = (relay.Node, )
-
-class VerseNode(DjangoObjectType):
+          
+class DeckNode (DjangoObjectType):  
   class Meta:
-    ...
-
+    model = Deck
+    interfaces = (relay.Node, )
+    
 class Query(AbstractType):
-  book = relay.Node.Field(BookNode)
-  all_books = DjangoFilterConnectionField(BookNode)
-
-  verse = relay.Node.Field(VerseNode)
-  all_verses = DjangoFilterConnectionField(VerseNode)
+  all_decks = DjangoFilterConnectionField(DeckNode)
+  all_cards = DjangoFilterConnectionField(CardNode)
 ```
 
 ---
