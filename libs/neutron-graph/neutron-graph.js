@@ -43,6 +43,16 @@ export class QueryResult {
       this.data[prop] = new DataTransformer(d);
     }
   }
+  
+  nodes (data_list) {
+    var node_data = [];
+    
+    data_list.edges.forEach(function (d) {
+      node_data.push(d.node);
+    });
+    
+    return node_data;
+  }
 }
 
 export class Query {
