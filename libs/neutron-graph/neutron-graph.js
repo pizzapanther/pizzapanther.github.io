@@ -3,11 +3,17 @@ export class DataTransformer {
     this.data = data;
   }
   
-  nodes () {
+  nodes (data_list) {
     var node_data = [];
-    this.data.edges.forEach(function (d) {
+    
+    if (!data_list) {
+      data_list = this.data;
+    }
+    
+    data_list.edges.forEach(function (d) {
       node_data.push(d.node);
     });
+    
     return node_data;
   }
   
@@ -268,6 +274,20 @@ export class Query {
   }
   
   all (qopts) {
+    /***
+    opts:
+      node: query node
+      filters: filters for query
+      attributes: attributes to return
+      first: limit results
+      last: limit results backwards
+    ***/
+    
+    this.all_queries.push(qopts);
+    return this;
+  }
+  
+  query (qopts) {
     /***
     opts:
       node: query node

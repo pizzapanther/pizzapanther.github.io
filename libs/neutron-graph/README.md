@@ -21,7 +21,7 @@ var query = {
   }
 };
 
-GraphAPI().data_graph().all(query).submit().then(function(response) {
+GraphAPI().data_graph().query(query).submit().then(function(response) {
   console.log(response.data.allSchedules.nodes());
 }).catch(function(error) {
   console.log(error);
@@ -43,7 +43,7 @@ var query = {
   }
 };
 
-GraphAPI().all(query).submit().then(function (result) {
+GraphAPI().query(query).submit().then(function (result) {
   verses = result.data.allVerses.nodes();
 }).catch(function (error) {
   console.error(error);
@@ -56,7 +56,7 @@ GraphAPI().all(query).submit().then(function (result) {
 
 ```javascript
 var GraphAPI = DataGraph('/data-graph');
-var promise = GraphAPI().all(query1).all(query2).get(query3).submit();
+var promise = GraphAPI().query(query1).query(query2).get(query3).submit();
 ```
 
 Result will contain an attribute for each node name.
@@ -67,7 +67,7 @@ Example: `result.data.AllVerses, result.data.AllChapters, result.data.Chapter`
 
 |Name|Description|
 |------|-----------|
-|all()|Query that contains multiple results|
+|query()|Query that contains multiple results|
 |get()|Query by ID. Supply base64 `{id}` or `{name, id}` to generate id|
 
 
