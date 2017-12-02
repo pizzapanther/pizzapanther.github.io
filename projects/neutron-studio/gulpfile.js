@@ -22,6 +22,11 @@ gulp.task('css', function () {
 });
  
 gulp.task('watch', build_tasks, function () {
+  gulp.watch("src/**", ['public']);
+  gulp.watch("src/**/*.html", ['html']);
+  gulp.watch("src/**/*.js", ['js']);
+  gulp.watch("src/**/*.less", ['css']);
+  
   gulp.src('build')
     .pipe(webserver({
       livereload: true,
