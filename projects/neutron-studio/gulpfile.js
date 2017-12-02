@@ -1,18 +1,23 @@
 var gulp = require('gulp');
 var webserver = require('gulp-webserver');
 
-var build_tasks = ['build-html', 'build-js', 'build-css'];
+var build_tasks = ['public', 'html', 'js', 'css'];
 
-gulp.task('build-html', function () {
+gulp.task('public', function () {
+  gulp.src('public/**')
+    .pipe(gulp.dest("build"));
+});
+
+gulp.task('html', function () {
   gulp.src('src/index.html')
     .pipe(gulp.dest("build"));
 });
 
-gulp.task('build-js', function () {
+gulp.task('js', function () {
   
 });
 
-gulp.task('build-css', function () {
+gulp.task('css', function () {
   
 });
  

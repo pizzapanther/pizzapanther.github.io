@@ -10,7 +10,10 @@
   "author": "paul@neutron.studio",
   "license": "UNLICENSED",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "morgan": "^1.9.0",
+    "serve-static": "^1.13.1"
   },
   "devDependencies": {
     "gulp-webserver": "^0.9.1"
