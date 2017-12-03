@@ -24,7 +24,7 @@ var PROJECTS = [
   {
     title: "Bible Fish",
     subtitle: "The quickest and simplest way to read the Bible on any device.",
-    icon: "book",
+    icon: "local_library",
     url: "https://www.bible.fish/",
     desc: "A free Progressive Web App Bible. Bible.Fish is a Bible app that \
     allows quick access to scriptures with just your web browser. You can also \
