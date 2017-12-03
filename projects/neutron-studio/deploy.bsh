@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm deploy.tar.gz
+tar cvf deploy.tar *.j* public/ src/
+gzip -9 deploy.tar
+heroku builds:create -a neutron-studio --source-tar deploy.tar.gz
