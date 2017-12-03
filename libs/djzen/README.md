@@ -24,12 +24,12 @@ grow any of them.
 
 ## Installation
 
-`pip install djzen`
+`pip install djzen[prod]`
 
 ## Quick Start
 
 ```
-pip install djzen
+pip install djzen[prod]
 djzen startproject <projectname>
 Install to:
   [1] Current directory (recommended)
