@@ -20,10 +20,10 @@ body {
 
 .outline_text {
   text-shadow:
-   -1px -1px 0 @dividerColor,  
-    1px -1px 0 @dividerColor,
-    -1px 1px 0 @dividerColor,
-    1px 1px 0 @dividerColor;
+   -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
 }
 
 #app .md-toolbar {
@@ -67,6 +67,7 @@ body {
   position: relative;
   background-color: @textPrimaryColor;
   border-bottom: 4px solid @dividerColor;
+  color: @darkPrimaryColor;
   
   .wrapper {
     display: flex;
@@ -93,7 +94,7 @@ body {
     font-size: 4rem;
     margin: 0 0 15px 0;
     line-height: normal;
-    .outline_text
+    .outline_text;
   }
   
   h2 {
@@ -101,7 +102,8 @@ body {
     font-size: 2rem;
     line-height: normal;
     margin: 0;
-    .outline_text
+    .outline_text;
+    color: #000;
   }
 }
 
