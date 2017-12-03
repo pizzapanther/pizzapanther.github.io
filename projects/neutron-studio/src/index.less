@@ -18,12 +18,12 @@ body {
   background-color: @bgColor !important;
 }
 
-.outline_text {
+.outline_text(@value: #000) {
   text-shadow:
-   -1px -1px 0 #fff,  
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px 1px 0 #fff;
+   -1px -1px 0 @value,  
+    1px -1px 0 @value,
+    -1px 1px 0 @value,
+    1px 1px 0 @value;
 }
 
 #app .md-toolbar {
@@ -92,6 +92,7 @@ body {
   h1 {
     font-family: @logoFont;
     font-size: 4rem;
+    letter-spacing: 3px;
     margin: 0 0 15px 0;
     line-height: normal;
     .outline_text;
@@ -101,7 +102,7 @@ body {
     font-size: 2rem;
     line-height: normal;
     margin: 0;
-    .outline_text;
+    .outline_text(#fff);
     color: #000;
   }
 }
