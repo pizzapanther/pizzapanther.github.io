@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "postinstall": "gulp"
+    "postinstall": "gulp",
+    "deploy": "./deploy.bsh"
   },
   "author": "paul@neutron.studio",
   "license": "UNLICENSED",

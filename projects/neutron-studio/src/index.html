@@ -12,7 +12,7 @@
   <body>
     <div id="app">
       <md-toolbar class="md-dense">
-        <h2 class="md-title" style="flex: 1">
+        <h2 class="md-title">
           Neutron Studio
         </h2>
         <div>
@@ -20,11 +20,29 @@
         </div>
       </md-toolbar>
       <div class="banner">
-        <h1>Neutron Studio</h1>
-        <h2>Web applications with cat logos</h2>
+        <div class="img">
+          <img src="/icon.svg?version={{ v }}" alt="">
+        </div>
+        <div class="wrapper">
+          <h1>Neutron Studio</h1>
+          <h2>Web applications with cat logos</h2>
+        </div>
+      </div>
+      <div class="projects">
+        <div id="projects">
+          <h2>Our Projects</h2>
+        </div>
+        <our-projects></our-projects>
       </div>
     </div>
-    <script src="/dist/vue.min.js"></script>
+    
+    {% for tpl in templates %}
+    <script type="text/x-template" id="tpl-{{ tpl.path }}">
+      {{ tpl.content | safe }}
+    </script>
+    {% endfor %}
+    
+    <script src="/dist/vue.js"></script>
     <script src="/dist/vue-material.js"></script>
     <script src="/index.js"></script>
   </body>

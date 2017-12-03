@@ -1,9 +1,9 @@
+var fs = require('fs');
+
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var concat = require("gulp-concat");
 var addsrc = require('gulp-add-src');
-
-var webserver = require('gulp-webserver');
 
 var rollup = require('rollup').rollup;
 var buble = require('rollup-plugin-buble');
@@ -29,8 +29,22 @@ gulp.task('public', function () {
 gulp.task('html', function () {
   var v = process.env.HEROKU_RELEASE_VERSION || Date.now();
   
+  var files = fs.readdirSync('src/');
+  var templates = [];
+  
+  files.forEach(function (f) {
+    if (f.endsWith('.html') && f != 'index.html') {
+      var path = f.replace('.html', '');
+      
+      templates.push({
+        path: path,
+        content: fs.readFileSync('src/' + f)
+      });
+    }
+  });
+  
   gulp.src('src/index.html')
-    .pipe(nunjucks.compile({v: v}))
+    .pipe(nunjucks.compile({v, templates}))
     .pipe(gulp.dest("build"));
 });
 
@@ -69,6 +83,8 @@ gulp.task('watch', build_tasks, function () {
   gulp.watch("src/**/*.html", ['html']);
   gulp.watch("src/**/*.js", ['js']);
   gulp.watch("src/**/*.less", ['css']);
+  
+  var webserver = require('gulp-webserver');
   
   gulp.src('build')
     .pipe(webserver({
