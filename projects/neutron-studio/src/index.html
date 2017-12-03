@@ -2,8 +2,30 @@
 <html>
   <head>
     <title>Neutron Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href="//fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="/index.css?version={{ v }}">
   </head>
   <body>
-    <h1>Neutron Studio</h1>
+    <div id="app">
+      <md-toolbar class="md-dense">
+        <h2 class="md-title" style="flex: 1">
+          Neutron Studio
+        </h2>
+        <div>
+          <md-button href="#projects">Our Projects</md-button>
+        </div>
+      </md-toolbar>
+      <div class="banner">
+        <h1>Neutron Studio</h1>
+        <h2>Web applications with cat logos</h2>
+      </div>
+    </div>
+    <script src="/dist/vue.min.js"></script>
+    <script src="/dist/vue-material.js"></script>
+    <script src="/index.js"></script>
   </body>
 </html>
