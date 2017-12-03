@@ -65,12 +65,14 @@ body {
     font-family: @logoFont;
     font-size: 4rem;
     margin: 0 0 30px 0;
+    line-height: normal;
     .outline_text
   }
   
   h2 {
     font-weight: normal;
     font-size: 2rem;
+    line-height: normal;
     .outline_text
   }
 }
@@ -81,18 +83,42 @@ body {
   h2 {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 .project-cards {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1080px;
+  margin: 0 auto;
   
   .md-card {
     max-width: 450px;
+    min-width: 300px;
     flex: 1;
     padding: 10px;
-    margin: 0 10px 10px 10px;
+    margin: 10px;
+    
+    .md-card-media {
+      text-align: center;
+    }
+    
+    .md-card-header {
+      text-align: center;
+    }
+    
+    .md-card-media + .md-card-header {
+      padding-top: 7px;
+    }
+    
+    .md-card-actions .md-button {
+      margin: 0 8px;
+    }
+  }
+  
+  .md-card-content {
+    flex: 1;
   }
 }

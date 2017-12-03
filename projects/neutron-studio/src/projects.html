@@ -1,7 +1,7 @@
 <div class="project-cards">
   <md-card v-for="p in projects" :key="p.title">
     <md-card-media>
-      <img src="assets/card-image-1.jpg" alt="People">
+      <md-icon class="md-size-3x md-accent">{{ p.icon }}</md-icon>
     </md-card-media>
   
     <md-card-header>
@@ -14,6 +14,9 @@
     </md-card-content>
     
     <md-card-actions>
+      <md-button v-if="p.github" class="md-raised" :href="p.url" target="_blank">
+        Github <md-icon>code</md-icon>
+      </md-button>
       <md-button class="md-raised md-accent" :href="p.url" target="_blank">
         Open App <md-icon>open_in_new</md-icon>
       </md-button>

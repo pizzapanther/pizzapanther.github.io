@@ -3,7 +3,8 @@ import Vue from 'vue';
 var PROJECTS = [
   {
     title: "Neutron Academy",
-    subtitle: "Learn Out Loud! Study with voice enabled quizzes.",
+    subtitle: "Learn Out Loud. Study with voice enabled quizzes.",
+    icon: "school",
     url: "https://www.neutron.academy/",
     desc: "Neutron Academy is quiz based learning system that\
     works with voice interactions on Google Assistant and the web. \
@@ -13,10 +14,19 @@ var PROJECTS = [
   {
     title: "Codacation",
     subtitle: "Git workflow for your coding education",
+    icon: "code",
     url: "https://www.codacation.com/",
-    desc: "Codacation is a tool to assign and track work via Github \
-    and Github Issues. Our goal is to teach coding using tools with \
-    used in the technology industry."
+    github: "https://github.com/pizzapanther/codacation",
+    desc: "Codacation is an open source tool to assign and track \
+    work via Github and Github Issues. Our goal is to teach coding \
+    using tools with used in the technology industry."
+  },
+  {
+    title: "Bible Fish",
+    subtitle: "The quickest and simplest way to read the Bible on any device.",
+    icon: "book",
+    url: "https://www.bible.fish/",
+    desc: "A free Progressive Web App Bible that is offline enabled."
   }
 ];
 
