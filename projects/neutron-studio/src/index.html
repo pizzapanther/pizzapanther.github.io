@@ -16,7 +16,14 @@
           Neutron Studio
         </h2>
         <div>
-          <md-button href="#projects">Our Projects</md-button>
+          <md-button href="#projects">
+            <md-icon>code</md-icon>
+            <span>Our Projects</span>
+          </md-button>
+          <md-button href="#contact">
+            <md-icon>mail_outline</md-icon>
+            <span>Contact Us</span>
+          </md-button>
         </div>
       </md-toolbar>
       <div class="banner">
@@ -28,12 +35,8 @@
           <h2>Web applications with cat logos</h2>
         </div>
       </div>
-      <div class="projects">
-        <div id="projects">
-          <h2>Our Projects</h2>
-        </div>
-        <our-projects></our-projects>
-      </div>
+      <our-projects></our-projects>
+      <contact-info></contact-info>
     </div>
     
     {% for tpl in templates %}
@@ -42,8 +45,8 @@
     </script>
     {% endfor %}
     
-    <script src="/dist/vue.js"></script>
-    <script src="/dist/vue-material.js"></script>
-    <script src="/index.js"></script>
+    <script src="/dist/vue.min.js?version={{ v }}"></script>
+    <script src="/dist/vue-material.js?version={{ v }}"></script>
+    <script src="/index.js?version={{ v }}"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueMaterial from 'vue-material';
 
 import OurProjects from './projects';
+import ContactInfo from './contact';
 
 Vue.use(VueMaterial);
 

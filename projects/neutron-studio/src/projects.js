@@ -26,7 +26,9 @@ var PROJECTS = [
     subtitle: "The quickest and simplest way to read the Bible on any device.",
     icon: "book",
     url: "https://www.bible.fish/",
-    desc: "A free Progressive Web App Bible that is offline enabled."
+    desc: "A free Progressive Web App Bible. Bible.Fish is a Bible app that \
+    allows quick access to scriptures with just your web browser. You can also \
+    use Bible.Fish offline without any internet on Chrome, Firefox, and Opera."
   }
 ];
 

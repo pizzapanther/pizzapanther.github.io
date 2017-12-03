@@ -26,20 +26,47 @@ body {
     1px 1px 0 @dividerColor;
 }
 
-.md-toolbar {
+#app .md-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+  
   h2.md-title {
     flex: 1;
     font-family: @logoFont;
     font-size: 2rem;
   }
+  
+  .md-button {
+    display: inline-flex;
+    align-items: center;
+    
+    span {
+      padding-left: 5px;
+    }
+  }
+  
+  @media (min-width: 648px) {
+    .md-button {
+      min-width: 0;
+      padding: 5px;
+      
+      span {
+        display: none;
+      }
+    }
+  }
 }
 
 .banner {
   text-align: center;
-  height: ~'calc(280px + 6rem)';
-  padding: 3rem 0;
+  height: ~'calc(280px + 8rem)';
+  padding-top: 5.4rem;
+  padding-bottom: 4rem;
   position: relative;
   background-color: @textPrimaryColor;
+  border-bottom: 4px solid @dividerColor;
   
   .wrapper {
     display: flex;
@@ -64,7 +91,7 @@ body {
   h1 {
     font-family: @logoFont;
     font-size: 4rem;
-    margin: 0 0 30px 0;
+    margin: 0 0 15px 0;
     line-height: normal;
     .outline_text
   }
@@ -73,12 +100,13 @@ body {
     font-weight: normal;
     font-size: 2rem;
     line-height: normal;
+    margin: 0;
     .outline_text
   }
 }
 
 .projects {
-  padding: 2rem 0;
+  padding: 2rem 0 3.5rem 0;
   
   h2 {
     text-align: center;
@@ -120,5 +148,24 @@ body {
   
   .md-card-content {
     flex: 1;
+  }
+}
+
+.contact {
+  background-color: @textPrimaryColor;
+  border-top: 4px solid @dividerColor;
+  border-bottom: 4px solid @dividerColor;
+  text-align: center;
+  padding: 3rem 0;
+  
+  .md-button.md-icon-button {
+    width: 80px;
+    height: 80px;
+    
+    .md-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 48px;
+    }
   }
 }
