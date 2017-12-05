@@ -33,7 +33,6 @@ Install to:
   [2] testproj
 Directory? [1]: <enter>
 Setup .gitignore? [Y/n]: <enter>
-Setup requirements.txt? [Y/n]: <enter>
 
 python manage.py devserver
 # or 

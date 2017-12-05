@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.12.2',
+  version = '17.12.3',
   description = 'Tools to streamline and simplify using Django.',
   long_description = get_readme(),
   classifiers = [
@@ -34,11 +34,13 @@ setup(
   license = 'MIT',
   entry_points = {'console_scripts': ['djzen = djzen.cli:zen_commands']},
   packages = [
+    '',
     'djzen',
     'djzen.management',
     'djzen.management.commands',
   ],
   package_data={
+    '': ['README.md'],
     'djzen': [
       'project_template/*',
       'project_template/.env',
