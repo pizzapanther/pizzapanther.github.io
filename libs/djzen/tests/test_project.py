@@ -9,7 +9,6 @@ class Project (TestCase):
     self.name = 'testproj'
     self.files = [
       '.env',
-      '.pipconfig',
       '.gitignore',
       'manage.py',
       os.path.join(self.name, 'urls.py'),

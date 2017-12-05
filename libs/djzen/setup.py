@@ -42,7 +42,6 @@ setup(
     'djzen': [
       'project_template/*',
       'project_template/.env',
-      'project_template/.pipconfig',
       'project_template/project_name/*',
       'project_template/project_name/settings/*',
     ]
