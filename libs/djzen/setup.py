@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.12.3',
+  version = '17.12.4',
   description = 'Tools to streamline and simplify using Django.',
   long_description = get_readme(),
   classifiers = [
@@ -60,6 +60,9 @@ setup(
     'uwsgi': [
       'django-uwsgi>=0.2.1',
       'uWSGI>=2.0.15',
+    ],
+    'gunicorn': [
+      'gunicorn>=19.7.1',
     ],
     'dev': [
       'twine',

@@ -38,10 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'djzen',
-    'django_uwsgi',
 ]
+
+try:
+    import django_uwsgi
+
+except ModuleNotFoundError:
+    pass
+
+else:
+    INSTALLED_APPS.append('django_uwsgi')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
