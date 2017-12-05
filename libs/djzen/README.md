@@ -23,6 +23,10 @@ grow any of them.
 
 `pipenv install djzen[uwsgi]`
 
+or 
+
+`pipenv install djzen[gunicorn]`
+
 ## Quick Start
 
 ```
@@ -34,29 +38,29 @@ Install to:
 Directory? [1]: <enter>
 Setup .gitignore? [Y/n]: <enter>
 
-python manage.py devserver
+pipenv run python manage.py devserver
 # or 
-python manage.py collectstatic
-python manage.py prodserver
+pipenv run python manage.py collectstatic
+pipenv run python manage.py prodserver
 ```
 
 ## Usage
 
 ### Starting a `djzen` project
 
-`djzen startproject [projectname] [directory]`
+`pipenv run djzen startproject [projectname] [directory]`
 
 *directory is optional*
 
 ### Development Server
 
-`python manage.py devserver`
+`pipenv run python manage.py devserver`
 
 Does the same thing as [runserver](https://docs.djangoproject.com/en/1.11/ref/django-admin/#runserver) just gives you a better indication of which environment you're running.
 
 ### Production Server
 
-`python manage.py prodserver`
+`pipenv run python manage.py prodserver`
 
 Does the same thing as [runuwsgi](http://django-uwsgi.readthedocs.io/en/master/command.html) just gives you a better indication of which environment you're running.
 
@@ -64,7 +68,7 @@ Does the same thing as [runuwsgi](http://django-uwsgi.readthedocs.io/en/master/c
 
 Static files will be served automatically with the production server. You only need to run the `collectstatic` command on deployment.
 
-`python manage.py collectstatic`
+`pipenv run python manage.py collectstatic`
 
 ### Secrets
 
