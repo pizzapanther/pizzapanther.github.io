@@ -15,34 +15,6 @@ def write_ignore (directory):
     fh.write('static-compiled\n')
     fh.write('# End djzen\n\n')
     
-def write_requirements (directory):
-  from pip._vendor import pkg_resources
-  from pip._vendor.packaging.utils import canonicalize_name
-  
-  requirements = os.path.join(directory, 'requirements.txt')
-  lines = []
-  
-  for p in pkg_resources.working_set:
-    pname = canonicalize_name(p.project_name)
-    write = False
-    if pname.lower() in ['djzen', 'uwsgi', 'whitenoise', 'pip-save']:
-      write = True
-      
-    elif pname.lower().startswith('django'):
-      write = True
-      
-    if write:
-      lines.append('{}=={}'.format(pname, p.version))
-      
-  if lines:
-    lines.sort()
-    with open(requirements, 'a') as fh:
-      fh.write('\n# Added by djzen\n')
-      for line in lines:
-        fh.write(line + '\n')
-        
-      fh.write('# End djzen\n\n')
-      
 @click.group()
 def zen_commands ():
   pass
@@ -85,16 +57,13 @@ def startproject (name, directory):
   basedir = os.path.dirname(os.path.abspath(__file__))
   tpl = os.path.join(basedir, 'project_template')
   args.append(tpl)
-  args.extend(['-n', '.env', '-n', '.pipconfig'])
+  args.extend(['-n', '.env'])
   
   management.execute_from_command_line(args)
   
   if os.path.exists(directory):
     if click.confirm('Setup .gitignore?', default=True):
       write_ignore(directory)
-      
-    if click.confirm('Setup requirements.txt?', default=True):
-      write_requirements(directory)
       
 if __name__ == '__main__':
   zen_commands()
