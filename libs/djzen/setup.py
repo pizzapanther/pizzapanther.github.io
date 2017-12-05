@@ -21,7 +21,7 @@ from setuptools import setup
 
 setup(
   name = 'djzen',
-  version = '17.12.4',
+  version = '17.12.5',
   description = 'Tools to streamline and simplify using Django.',
   long_description = get_readme(),
   classifiers = [
