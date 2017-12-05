@@ -13,7 +13,7 @@ grow any of them.
 
 ## Features
 
-- **Production Ready Deployment:** Pre-built with [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/index.html) support for deployment. uWSGI has become the high performance standard for Django deployments thus we baked it in by default.
+- **Production Ready Deployment:** Pre-built with [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/index.html) or [Gunicorn](http://gunicorn.org/) support for deployment. Both have become the high performance standard for Django deployments thus we baked it in by default.
 - **Production Ready Static File Serving:** Static file serving is configured out of the box using [WhiteNoise](http://whitenoise.evans.io/en/stable/). WhiteNoise provides simple static file serving with performance in mind.
 - **Settings Management:** Settings are split into development and production. Debug is turned off in production by default. It is also easy to add more environments.
 - **SECRET_KEY Management:** The secret key is setup using environmental variables so you don't commit it to your repository by accident. A dot env file is also added and ignored in git for added safety.
