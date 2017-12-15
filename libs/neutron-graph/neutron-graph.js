@@ -112,25 +112,40 @@ export class Query {
         
         attr_string += ')';
         attr_string += ' {';
+      } else if (attrs.args) {
+        attr_string += '(';
+        
+        for (let f in attrs.args) {
+          let value = this.to_filter(attrs.args[f]);
+          attr_string += `${f}: ${value} `;
+        }
+        
+        attr_string += ')';
+        attr_string += ' {';
       }
       
-      for (let f in attrs) {
-        if (f != 'filters') {
-          if (!attrs[f]) {
-            attr_string += `${f}\n`;
-          } else {
-            let value = this.to_attr(attrs[f]);
-            
-            if (attrs[f].filters) {
-              attr_string += `${f} ${value}\n`;
+      if (attrs.attributes) {
+        let value = this.to_attr(attrs.attributes);
+        attr_string += `\n${value}\n`;
+      } else {
+        for (let f in attrs) {
+          if (f != 'filters' && f != 'args') {
+            if (!attrs[f]) {
+              attr_string += `${f}\n`;
             } else {
-              attr_string += `${f} { ${value} }\n`;
+              let value = this.to_attr(attrs[f]);
+              
+              if (attrs[f].filters || attrs[f].args) {
+                attr_string += `${f} ${value}\n`;
+              } else {
+                attr_string += `${f} { ${value} }\n`;
+              }
             }
           }
         }
       }
       
-      if (attrs.filters) {
+      if (attrs.filters || attrs.args) {
         attr_string += ' }';
       }
     }
