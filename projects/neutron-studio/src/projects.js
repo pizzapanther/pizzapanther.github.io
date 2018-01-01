@@ -2,6 +2,17 @@ import Vue from 'vue';
 
 var PROJECTS = [
   {
+    title: "Neutron64",
+    subtitle: "The honey badger of code editors.",
+    icon: "laptop",
+    url: "https://www.neutron64.com/",
+    desc: "Neutron64 is a web based code editor build as a progressive\
+    web app. Neutron is simple yet powerful and supports editing files\
+    locally, remotely, and through cloud storage systems like\
+    Google Drive. Neutron turns your web browser into a development \
+    environment."
+  },
+  {
     title: "Neutron Academy",
     subtitle: "Learn Out Loud. Study with voice enabled quizzes.",
     icon: "school",
