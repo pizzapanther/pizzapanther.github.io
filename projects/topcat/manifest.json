@@ -1,0 +1,22 @@
+{
+  "app": {
+    "background": {
+       "scripts": [ "bg.js" ]
+    }
+  },
+  "description": "Open URLs in a floating window for Chrome OS.",
+  "icons": {
+    "128": "neutron-energy-128.png",
+    "48": "neutron-energy-48.png",
+    "32": "neutron-energy-32.png",
+    "16": "neutron-energy-16.png"
+  },
+  "manifest_version": 2,
+  "name": "Top Cat",
+  "permissions": [
+    "app.window",
+    "alwaysOnTopWindows",
+    "webview"
+  ],
+  "version": "18.2.1"
+}
