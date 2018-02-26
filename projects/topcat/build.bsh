@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm topcat.zip
+zip topcat.zip *.js manifest.json *.png *.html
+cp topcat.zip ~/downloads/
