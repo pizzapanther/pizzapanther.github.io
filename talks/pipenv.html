@@ -66,22 +66,16 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
 
 djzen = {extras = ["gunicorn"]}
 dj-database-url = "*"
 pyjwt = "*"
-djangorestframework = "*"
-django-filter = "*"
 graphene-django = {git = "https://github.com/pizzapanther/graphene-django.git"}
-
 
 [dev-packages]
 
 yapf = "*"
-begins = "*"
-
 
 [requires]
 
@@ -106,6 +100,14 @@ SECRET_KEY=dev
 GOOGLE_KEY=ABC123
 GOOGLE_SECRET=NARF
 ```
+
+---
+
+# Security Checkup
+
+`pipenv check`
+
+<img src="/static/img/prevention.png" alt="security">
 </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     <script>
