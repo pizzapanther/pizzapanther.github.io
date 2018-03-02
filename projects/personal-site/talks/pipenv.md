@@ -98,3 +98,12 @@ GOOGLE_SECRET=NARF
 `pipenv check`
 
 <img src="{% static "img/prevention.png" %}" alt="security">
+
+---
+
+# More tricks
+
+- auto convert requirements.txt
+- `pipenv update`
+    - `pipenv update --outdated`
+    - `pipenv update <pkg>`
