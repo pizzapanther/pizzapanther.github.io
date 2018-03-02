@@ -97,6 +97,8 @@ GOOGLE_SECRET=NARF
 
 `pipenv check`
 
+<br><br>
+
 <img src="{% static "img/prevention.png" %}" alt="security" style="width: 320px;">
 
 ---
