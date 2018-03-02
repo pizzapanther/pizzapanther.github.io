@@ -62,16 +62,11 @@ name = "pypi"
 djzen = {extras = ["gunicorn"]}
 dj-database-url = "*"
 pyjwt = "*"
-djangorestframework = "*"
-django-filter = "*"
 graphene-django = {git = "https://github.com/pizzapanther/graphene-django.git"}
-
 
 [dev-packages]
 
 yapf = "*"
-begins = "*"
-
 
 [requires]
 
