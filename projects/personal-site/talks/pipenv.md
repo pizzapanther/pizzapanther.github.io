@@ -99,7 +99,7 @@ GOOGLE_SECRET=NARF
 
 <br><br>
 
-<img src="{% static "img/prevention.png" %}" alt="security" style="width: 320px;">
+<img src="{% static "img/croc.jpeg" %}" alt="security" style="width: 320px;">
 
 ---
 
