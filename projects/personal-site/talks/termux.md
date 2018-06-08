@@ -71,6 +71,14 @@ class: middle, center
 
 class: middle, center
 
+# Install Time
+
+<iframe src="https://giphy.com/embed/9Wh7TNThCgWti" width="480" height="361" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/food-pizza-9Wh7TNThCgWti">via GIPHY</a></p>
+
+---
+
+class: middle, center
+
 # It's Linux But:
 
 &bull; Android Linux<br>
@@ -181,3 +189,15 @@ Solutions:
     -  emacs
     -  nano
     -  [Neutron64](https://www.neutron64.com/)
+
+---
+
+class: middle, center
+
+<iframe src="https://giphy.com/embed/3o6ZthWzyoIzSknltu" width="240" height="135" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+**Project Crostini from Google**
+
+&bull; Linux on ChromeOS<br>
+&bull; Right now only available in dev channel<br>
+&bull; Limited to Chromebooks<br>
