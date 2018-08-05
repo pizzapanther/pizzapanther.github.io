@@ -133,7 +133,7 @@ speaks response
 
 - [Verifying a request](https://developers.google.com/actions/reference/rest/verify-requests)
 
-<iframe src="https://giphy.com/embed/VTc8cXZN2Vpf2" width="240" height="161" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://giphy.com/embed/VTc8cXZN2Vpf2" width="200" height="141" frameBorder="0" class="giphy-embed" allowFullScreen style="float:right"></iframe>
 
 ```python
 from google.oauth2 import id_token
