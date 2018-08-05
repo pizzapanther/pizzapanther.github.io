@@ -32,6 +32,14 @@ h1, h2, h3 {
   margin-top: 0.5rem;
 }
 
+.tight p {
+  margin-bottom: 10px;
+}
+
+.tight ul {
+  margin-top: 10px;
+}
+
 .tight li {
   margin-top: 0.5rem;
 }
@@ -59,19 +67,19 @@ hr {
 .inverse .remark-code, .inverse .remark-inline-code {
   color: #489963;
 }
-  
+
 @media only screen {
   .inverse {
     background-color: #272822;
     color: #eaeaea;
     text-shadow: 0 0 20px #333;
   }
-  
+
   .inverse h1, .inverse h2 {
     color: #f3f3f3;
     line-height: 1.0em;
   }
-  
+
   a, a > code {
     color: rgb(249, 38, 114);
     text-decoration: none;
