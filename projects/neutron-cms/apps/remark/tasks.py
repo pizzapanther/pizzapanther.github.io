@@ -7,7 +7,7 @@ def run ():
   base = os.path.join(os.environ['HOME'], 'code/pizzapanther.github.io/projects/personal-site')
   slide_template = 'slides.html'
   folder = 'talks'
-  file = 'termux.md'
+  file = 'gac-python.md'
   outdir = os.path.join(os.environ['HOME'], 'code/pizzapanther.github.io')
 
   infile = os.path.join(base, folder, file)
