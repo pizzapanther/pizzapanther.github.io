@@ -135,6 +135,21 @@ speaks response
 
 <iframe src="https://giphy.com/embed/VTc8cXZN2Vpf2" width="240" height="161" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
+```python
+from google.oauth2 import id_token
+from google.auth.transport import requests
+
+request = requests.Request()
+
+try:
+  id_info = id_token.verify_oauth2_token(
+    token, request, PROJECT_ID)
+    
+except:
+  self.set_status(401)
+  self.write('Token Mismatch')
+```
+
 ---
 
 class: tight
