@@ -173,6 +173,16 @@ class: tight
 
 ---
 
+class: tight
+
+# Tools and Libraries
+
+**Text to Speech**
+- [Cloud Text-to-Speech](https://cloud.google.com/text-to-speech/)
+- [Amazon Polly](https://aws.amazon.com/polly/)
+
+---
+
 class: middle, center
 
 # Questions?
