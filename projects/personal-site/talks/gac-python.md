@@ -11,7 +11,7 @@ class: middle
 
 - These Slides: [bit.ly/py-gac](http://bit.ly/py-gac)
 - My Google Action: [Neutron Academy](https://www.neutron.academy/)
-- Paul Bailey: [twitter.com/pizzapanther](https://twitter.com/pizzapanther)
+- Paul Bailey: [@PizzaPanther](https://twitter.com/pizzapanther)
 - Developer [@SaltStack](https://saltstack.com/)
 
 ---
