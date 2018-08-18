@@ -36,8 +36,11 @@ Actions on Google lets you extend the functionality of the Google Assistant with
 https://developers.google.com/actions/
 
 - Use a template *(no coding required)*
-- Use a tool *(some coding required)*:
+- Use a platform:
+  - Coding may or may not be required
+  - More opinionated
   - [DialogFlow](https://dialogflow.com/docs/integrations/google-assistant)
+  - [Rasa](http://rasa.com/)
   - [Converse](https://get.converse.ai/docs/google-actions)
   - [PullString](https://www.pullstring.com/blog/pullstring-announces-support-for-actions-on-google?hsCtaTracking=2c9d2014-7829-4d37-9a6e-26ca844a5171%7Cf929e814-a0cb-4869-aaea-5408025029e0&__hstc=184034361.e41fcd15c37387327b67c2a2869bb15f.1474952963337.1489506642691.1489718912868.167&__hssc=184034361.1.1489784561986&__hsfp=976989674)
   - [gupshup](https://www.gupshup.io/developer/googlehome)
