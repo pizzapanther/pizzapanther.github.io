@@ -165,18 +165,21 @@ class: tight
 - [Flask](http://flask.pocoo.org/)
 - [Django](https://www.djangoproject.com/)
 
+---
+
+class: tight
+
+# Tools and Libraries
+
 **Language Processing**
 - [DialogFlow](http://dialogflow-python-client-v2.readthedocs.io/)
 - [NLTK](https://www.nltk.org/)
 - [spaCy](https://spacy.io/)
 - [scikit-learn](http://scikit-learn.org/)
 - [polyglot](http://polyglot.readthedocs.io/)
-
----
-
-class: tight
-
-# Tools and Libraries
+- [Rasa Core (dialogue)](https://rasa.com/docs/core/)
+- [Rasa NLU](http://rasa.com/docs/nlu/)
+- [Gensim](https://radimrehurek.com/gensim/)
 
 **Text to Speech**
 - [Google Cloud Text-to-Speech](https://cloud.google.com/text-to-speech/)
