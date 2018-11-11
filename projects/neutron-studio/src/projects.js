@@ -22,16 +22,16 @@ var PROJECTS = [
     You can create quizzes, assign them to your class, and track \
     your students' progress."
   },
-  {
-    title: "Codacation",
-    subtitle: "Git workflow for your coding education",
-    icon: "code",
-    url: "https://www.codacation.com/",
-    github: "https://github.com/pizzapanther/codacation",
-    desc: "Codacation is an open source tool to assign and track \
-    work via Github and Github Issues. Our goal is to teach coding \
-    using tools with used in the technology industry."
-  },
+  // {
+  //   title: "Codacation",
+  //   subtitle: "Git workflow for your coding education",
+  //   icon: "code",
+  //   url: "https://www.codacation.com/",
+  //   github: "https://github.com/pizzapanther/codacation",
+  //   desc: "Codacation is an open source tool to assign and track \
+  //   work via Github and Github Issues. Our goal is to teach coding \
+  //   using tools with used in the technology industry."
+  // },
   {
     title: "Bible Fish",
     subtitle: "The quickest and simplest way to read the Bible on any device.",
