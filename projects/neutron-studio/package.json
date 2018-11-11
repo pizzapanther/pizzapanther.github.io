@@ -9,6 +9,9 @@
     "postinstall": "gulp",
     "deploy": "./deploy.bsh"
   },
+  "engines": {
+    "node": "8.X"
+  },
   "author": "paul@neutron.studio",
   "license": "UNLICENSED",
   "dependencies": {
