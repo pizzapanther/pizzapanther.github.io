@@ -40,13 +40,6 @@ var PROJECTS = [
     desc: "A free Progressive Web App Bible. Bible.Fish is a Bible app that \
     allows quick access to scriptures with just your web browser. You can also \
     use Bible.Fish offline without any internet on Chrome, Firefox, and Opera."
-  },
-  {
-    title: "Top Cat",
-    subtitle: "Always on Top Windows",
-    icon: "file_upload",
-    url: "https://chrome.google.com/webstore/detail/top-cat/fpocjghbecdohcpgnaledaoflojibhfn",
-    desc: "A free Chrome OS app that lets you open URLs that float on top of all other windows."
   }
 ];
 
