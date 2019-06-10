@@ -1,0 +1,53 @@
+graph TD
+  A[Title slide] --> B[Intro]
+  B --> C[Sample quiz]
+  C -- yes --> D[sometimes choice is an illusion]
+  C -- no --> D
+  D --> E[About me quiz]
+  E -- hear about me --> F[About me]
+  E -- see me do cart wheel --> G[Are you sure Quiz]
+  G -- yes --> H[not black mirror]
+  G -- no --> F
+  H --> I[Library Quiz]
+  F --> I
+  I --> J[argparse intro]
+  I --> K[click intro]
+  I --> L[fire intro]
+  J --> M[click, fire Quiz]
+  K --> N[argparse, fire Quiz]
+  L --> O[click, argparse Quiz]
+  M -- click --> P[click intro - fire left]
+  M -- fire --> Q[fire intro - click left]
+  N -- argparse --> R[argparse intro - fire left]
+  N -- fire --> S[fire intro - argparse left]
+  O -- argparse --> T[argparse intro - click left]
+  O -- click --> U[click intro - argparse left]
+  P --> V[fire intro - final]
+  Q --> W[click intro - final]
+  R --> V
+  S --> X[argparse intro - final]
+  T --> W
+  U --> X
+  V --> Y[sub commands - click advanced - fire flexiblity quiz]
+  W --> Y
+  X --> Y
+  Y -- sub commands --> Z[argparse subcommands]
+  Y -- click --> AA[click subcommands]
+  Y -- fire --> AB[fire function subcommands]
+  Z --> AC[click subcommands]
+  AC --> AB
+  AB --> AD[fire class subcommands]
+  AA --> AE[click - types]
+  AE --> AF[click - prompts]
+  AF --> AG[click - env vars]
+  AG --> AH[click - files]
+  AH --> AI[click - colors]
+  AI --> AJ[click - more]
+  AJ --> ZZZ[questions and comments]
+  AD --> AK[argparse advanced - docopt quiz]
+  AK -- argparse --> AL[argparse advanced]
+  AK -- docopt --> AM[docopt bonus intro!!!]
+  AL --> ZZZ
+  AM --> ZZZ
+
+
