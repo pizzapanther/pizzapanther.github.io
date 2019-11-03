@@ -8,7 +8,7 @@ name = "pypi"
 [packages]
 
 Django = "==1.11.4"
-PyYAML = "==3.12"
+PyYAML = "==5.1"
 
 
 [dev-packages]
