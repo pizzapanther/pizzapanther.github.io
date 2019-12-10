@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """Naval Fate.
 
 Usage:

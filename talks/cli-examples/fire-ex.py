@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import fire
 
 def hello(names, times=1, enable_texas=False):

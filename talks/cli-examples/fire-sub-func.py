@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import fire
 
 def howdy(names, times=1):

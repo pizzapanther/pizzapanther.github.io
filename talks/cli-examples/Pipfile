@@ -6,7 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-docpopt = "*"
+click = "*"
+fire = "*"
 docopt = "*"
 
 [requires]
