@@ -16,8 +16,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "express": "^4.16.2",
-    "gulp": "^3.9.1",
-    "gulp-add-src": "^0.2.0",
+    "gulp": "^4.0.2",
+    "gulp-add-src": "^1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^3.3.2",
     "gulp-nunjucks": "^3.0.0",
